@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="login-box">
+        <form action="">
+            <h2>Login</h2>
+            <div class="input-box">
+                
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" required>
+                <label >Email</label>
+                <script>
+                    const input = document.querySelector('.input-box input');
+                    const label = document.querySelector('.input-box label');
+                
+                    input.addEventListener('input', () => {
+                        if (input.value) {
+                            label.classList.add('filled');
+                        } else {
+                            label.classList.remove('filled');
+                        }
+                    });
+                </script>
+            </div>
+            <div class="input-box">
+
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" required>
+                <label >Password</label>
+            </div>
+            <div class="forget-pass">
+                <a href="#">Forget Password</a>
+            </div>
+            <button type="submit">Login</button>
+            <div class="register-link">
+                <p>Don't have an account ? <a href="#">Register Now</a></p>
+            </div>
+        </form>
+        
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="login.js"></script>
+</body>
+</html>
