@@ -9,15 +9,80 @@
     <!-- Connects the JS file correctly -->
     <script src="main page.js"></script>
     <div class="background">
-    <div class="icon">
-        <img src="C:/Users/ROAA/Desktop/ALX/Task Master/Task-Master/main page/resources/icons/Frame 1.png" alt="pannel" class="pannel_icon">
-    </div>
         <div class="content">
             <img src="resources/logo.png" alt="Overlay Image" class="logo">
             <div class="slogan">
                 Conquer your tasks with effortless<br/> time management & productivity
             </div>
         </div>
+        <div class="icon" id="btn">
+            <img src="resources/icons/Frame 1.png" alt="pannel" class="pannel_icon">
+            </div>
+           
+        <div class="side-bar">
+            
+            <ul>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Sun.png" alt="My day" class="pannel-icon">
+                        <span class="nav-item"> My Day</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Check square.png" alt="Tasks" class="pannel-icon">
+                        <span class="nav-item"> Tasks</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Clipboard.png" alt="List" class="pannel-icon">
+                        <span class="nav-item"> List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/List.png" alt="add list" class="pannel-icon">
+                        <span class="nav-item"> Add list</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Clock.png" alt="pomdoro" class="pannel-icon">
+                        <span class="nav-item"> pomdoro</span>
+                    </a>
+                    
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Calendar.png" alt="Calendar" class="pannel-icon">
+                        <span class="nav-item">Calendar</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="resources/icons/Log out.png" alt="Log-out" class="pannel-icon">
+                        <span class="nav-item">Log-out</span>
+                    </a>
+                </li>
+            </ul>
+    </div>
+        
     </div>
 </body>
+<script>
+     document.addEventListener('DOMContentLoaded', function() {
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.side-bar');
+
+        if (btn && sidebar) {
+            btn.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+        }
+    });
+</script>
 </html>
