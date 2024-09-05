@@ -26,7 +26,7 @@ body {
 }
 
 .slogan {
-    color: rgba(46, 47, 110, 0.79);
+    color:rgba(18, 17, 59, 1);
     font-family: "Itim", sans-serif; /* Include a fallback */
     font-weight: 400;
     line-height: 1.2; /* Adjust line height */
@@ -92,7 +92,7 @@ body {
     left: 0;
     width: 10vh; /* Width of the sidebar */
     height: 100vh; /* Full viewport height */
-    background:rgba(16, 14, 14, 0.85); /* Background color */
+    background:rgba(16, 14, 14, 0.77); /* Background color */
     transition: transform 0.3s ease; /* Smooth transition */
     overflow: hidden; /* Hide overflow content */
     border-radius: 0.8rem;
@@ -119,12 +119,12 @@ body {
     margin-left: 10vh;
     width: 4vh; /* Fixed width for consistency */
     height: 4vh; /* Fixed height for consistency */
-    margin-right: 3vh; /* Space between icon and text */
-    margin-bottom: 2vh;
+    margin-right: 7vh; /* Space between icon and text */
+    margin-bottom: 1.5vh;
 }
 
 .nav-item {
-    font-size: 1.2rem; /* Adjust font size if needed */
+    font-size: 1.4rem; /* Adjust font size if needed */
     margin-right: 2vh;
     position: absolute;
     
@@ -136,7 +136,7 @@ body {
     font-family: "Itim";
 }
 .side-bar.active {
-    width: 35vh;
+    width: 34vh;
     
 }
 .side-bar ul li.active {
@@ -144,4 +144,7 @@ body {
 }
 .side-bar ul li  :hover{
     color: rgba(155, 162, 226, 1);
+}
+.side-bar ul li .log-out{
+   margin-bottom: -20vh;
 }
