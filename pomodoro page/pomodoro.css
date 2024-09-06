@@ -58,6 +58,7 @@ section {
     -webkit-box-shadow: 0px 0px 15px 10px var(--color-shadow); 
     box-shadow: 0px 0px 15px 10px var(--color-shadow);
     background-color: rgba(176, 178, 197, 1);
+    font-size: 2vh;
 }
 
 .painel p {
@@ -108,7 +109,7 @@ section {
 }
 
 .time p {
-    font-size: 5.6rem;
+    font-size: 6vh;
 }
 
 .time p:nth-of-type(2) {
@@ -125,13 +126,14 @@ section {
     border: none;
     background-color: transparent;
     cursor: pointer;
+    z-index: 1000;
 }
 
 .controls #reset {
     display: none;
 }
 body {
-    background-image: url("C:/Users/ROAA/Desktop/ALX/Task Master/Task-Master/main page/resources/download (3) 1.png"); /* Ensure the path is correct */
+    background-image: url("/Task Master/Task-Master/resources/bg.png"); /* Ensure the path is correct */
     background-size: cover; /* Ensure the image covers the entire background */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-attachment: fixed; /* Keeps the image fixed in place */
@@ -149,4 +151,15 @@ body {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     text-align: center; /* Center text alignment */
+}
+.side-pannel-page{
+    width: 30vh; /* Adjust as needed */
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0; /* Aligns to the left of the screen */
+    border-right: 1px solid #ccc; /* Optional border */
+    overflow-y: auto; /* Scroll if needed */
+    border: none;
+    background-color: transparent;
 }
