@@ -1,0 +1,11 @@
+.side-pannel-page{
+    width: 30vh; /* Adjust as needed */
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0; /* Aligns to the left of the screen */
+    border-right: 1px solid #ccc; /* Optional border */
+    overflow-y: auto; /* Scroll if needed */
+    border: none;
+    background-color: transparent;
+}
