@@ -62,7 +62,6 @@ body {
 @font-face {
     font-family: "Itim";
     src: url('/Task Master/Task-Master/resources/Itim/Itim-Regular.ttf');
-}
 .side-pannel-page{
     width: 30vh; /* Adjust as needed */
     height: 100vh; /* Full viewport height */
