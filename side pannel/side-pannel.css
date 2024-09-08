@@ -7,14 +7,14 @@
 .icon {
     position: absolute; /* Position relative to the viewport */
     top: 1vh; /* Distance from the top of the viewport */
-    left: 2.5vh; /* Distance from the left of the viewport */
+    left: 3.5vh; /* Distance from the left of the viewport */
     width: 10vh; /* Width relative to the viewport width */
     height: auto; /* Height relative to the viewport height */
     z-index: 1000;
 }
 
 .pannel_icon{
-    width: 7vh; /* Responsive size based on viewport width */
+    width: 6.5vh; /* Responsive size based on viewport width */
     height: auto; /* Maintain aspect ratio */
     transform: translateX(-2vh);
 }
@@ -59,7 +59,7 @@
     margin-left: 10vh;
     width: 4vh; /* Fixed width for consistency */
     height: 4vh; /* Fixed height for consistency */
-    margin-right: 7vh; /* Space between icon and text */
+    margin-right: 6vh; /* Space between icon and text */
     margin-bottom: 1.5vh;
 }
 
@@ -67,6 +67,7 @@
     font-size: 1.4rem; /* Adjust font size if needed */
     margin-right: 2vh;
     position: absolute;
+    margin-bottom: -1.2vh;
 }
 .side-bar ul li a {
     text-decoration: none;
