@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: "Itim";
-    src: url('C:/Users/ROAA/Desktop/ALX/Task Master/Task-Master/main page/resources/Itim/Itim-Regular.ttf');
+    src: url('/main page/resources/Itim/Itim-Regular.ttf');
 }
 .icon {
     position: absolute; /* Position relative to the viewport */
