@@ -1,6 +1,6 @@
 /* Applies the background image to the entire body */
 body {
-    background-image: url('/resources/bg.png'); /* Update the path if necessary */
+    background-image: url('../resources/bg.png'); /* Update the path if necessary */
     background-size: cover; /* Scales the image to cover the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed;
@@ -61,7 +61,7 @@ body {
 
 @font-face {
     font-family: "Itim";
-    src: url('/resources/Itim/Itim-Regular.ttf');
+    src: url('../resources/Itim/Itim-Regular.ttf');
 }
 .side-pannel-page{
     width: 30vh; /* Adjust as needed */
