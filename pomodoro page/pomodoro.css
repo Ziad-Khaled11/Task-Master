@@ -133,7 +133,7 @@ section {
     display: none;
 }
 body {
-    background-image: url("/resources/bg.png"); /* Ensure the path is correct */
+    background-image: url("../resources/bg.png"); /* Ensure the path is correct */
     background-size: cover; /* Ensure the image covers the entire background */
     background-repeat: no-repeat; /* Prevent the image from repeating */
     background-attachment: fixed; /* Keeps the image fixed in place */
