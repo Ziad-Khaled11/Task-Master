@@ -18,17 +18,213 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Itim";
 }
 
-.body {
+
+.container{
     background-image: url('../resources/bg.png'); /* Update the path if necessary */
     background-size: cover; /* Scales the image to cover the entire background */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed;
     background-position: center; /* Centers the background image */
     margin: 0;
+    width: 100%;
+    padding: 10px;
+    min-height: 100vh;
 }
 
-.container{
-    
+.myDay{
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
 }
+
+.myDay h2{
+    color:rgba(18, 17, 59, 1);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.myDay h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: whitesmoke;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input{
+    flex:1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-weight: 14px;
+    font-size: 20px;
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #2E2F70;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+button:hover{
+    background: #4D598F;
+}
+
+ul li{
+    list-style: none;
+    font-size: 20px;
+    padding: 12px 8px 12px 50px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    margin-left: 23px;
+}
+
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("../resources/icons/Circle.png");
+    background-size: cover;
+    background-position: center;
+    top: 9.5px;
+    left: 8px;
+}
+
+ul li.checked{
+    color:#555;
+    text-decoration: line-through;
+}
+
+ul li.checked::before{
+    background-image: url("../resources/icons/Check\ circle.png");
+}
+
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #2E2F70;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover{
+    background: whitesmoke;
+}
+
+.empty-tasks{
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+}
+
+.category{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    flex: 1 1 30%; /* Flex-grow, flex-shrink, flex-basis */
+    padding: 15px;
+    text-align: center;
+}
+
+.categorys.active{
+    background: #4D598F;
+}
+
+
+@media (max-width: 768px) {
+
+    .side-pannel-page {
+        width: 30vh; /* Original width for larger screens */
+    }
+    .myDay {
+        padding: 20px 15px 30px; /* Adjusted padding */
+    }
+
+    .row {
+        flex-direction: column; /* Set flex direction to column */
+    }
+
+    input {
+        margin-bottom: 10px; /* Added bottom margin */
+    }
+
+    button {
+        padding: 12px 20px; /* Adjusted padding */
+        font-size: 14px; /* Reduced font size */
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .myDay h2 {
+        font-size: 20px; /* Further reduced font size */
+    }
+
+    ul li {
+        font-size: 16px; /* Reduced font size */
+        padding: 8px 6px 8px 30px; /* Adjusted padding */
+    }
+
+    ul li::before {
+        height: 20px; /* Further reduced height */
+        width: 20px; /* Further reduced width */
+        top: 7px; /* Adjusted top position */
+        left: 5px; /* Adjusted left position */
+    }
+
+    ul li span {
+        width: 25px; /* Further reduced width */
+        height: 25px; /* Further reduced height */
+        font-size: 25px; /* Reduced font size */
+        line-height: 25px; /* Adjusted line height */
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .category {
+        font-size: 14px; /* Smaller font size */
+        width: 100%;
+    }
+}
+/* Media query for very small screens */
+@media (max-width: 400px) {
+    .category {
+        font-size: 12px; /* Even smaller font size */
+        width: 100%;
+    
+    }
+}
+
