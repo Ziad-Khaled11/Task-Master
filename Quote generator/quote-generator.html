@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
-    <!-- Connects the CSS file--> 
-    <link rel="stylesheet" href="/Task Master/Task-Master/Quote generator/quote-generator.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Generator Toast Notification</title>
+    <link rel="stylesheet" href="quote-generator.css">
 </head>
 <body>
-    
-    <!-- Connects the JS file-->
-    <script src="/Task Master/Task-Master/Quote generator/quote-generator.js"></script>
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // Function to fetch a random quote from the Quotable API
+        async function fetchQuote() {
+            try {
+                const response = await fetch('https://api.quotable.io/random');
+                if (!response.ok) throw new Error('Failed to fetch quote');
+                const data = await response.json();
+                return `${data.content} — ${data.author}`;
+            } catch (error) {
+                console.error('Error fetching quote:', error);
+                return 'An error occurred while fetching a quote.';
+            }
+        }
+
+        // Function to show a toast notification with the fetched quote
+        async function showToast() {
+            const toastContainer = document.getElementById('toastContainer');
+            const quote = await fetchQuote();
+
+            // Create a new toast element
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = quote;
+
+            // Append the toast to the container
+            toastContainer.appendChild(toast);
+
+            // Show the toast with animation
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100); // Delay to trigger CSS transition
+
+            // Remove the toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove(); // Remove the toast from DOM
+                }, 500); // Delay for transition out
+            }, 30000);
+        }
+
+        // Show the first toast immediately and set interval for subsequent toasts
+        showToast();
+        setInterval(showToast, 15*60*1000); // Show a new toast every 3 seconds
+    </script>
 </body>
 </html>

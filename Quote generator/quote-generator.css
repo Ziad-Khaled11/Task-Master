@@ -1,0 +1,37 @@
+@font-face {
+    font-family: "Itim";
+    src: url('../resources/Itim/Itim-Regular.ttf');
+}
+ /* Toast Container */
+ .toast-container {
+    position: fixed;
+    bottom: 50vh;
+    right: 5vh;
+    z-index: 1000;
+}
+
+/* Toast Styling */
+.toast {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    border-radius: 0.8rem;
+    color: rgba(18, 17, 59, 1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    writing-mode: sideways-lr;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: opacity 0.5s, transform 0.5s;
+    max-width: 50vh; /* Set maximum width */
+    word-wrap: break-word; /* Wrap text within the width */
+    word-break: break-word; /* Handle long words or URLs */
+    white-space: pre-wrap; /* Preserve whitespace and wrap lines */
+}
+
+/* Toast Show Animation */
+.toast.show {
+    opacity: 1;
+    transform: translateX(0);
+}
