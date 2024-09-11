@@ -4,58 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
-    <title>Document</title>
+    <title>Task Master</title>
+    <link rel="icon" href="../resources/icons/List.png"  type="image/x-icon">
 </head>
 <body>
     
     <div class="login-box">
-        <!-- <div class="content">
-            <div class="text">
-                <h2>
-              
-                    Welocme !<br><span>To Task Master</span>
-                </h2>    
-                <p>We have to make a mark<br>
-                    even if it's only a skribble
-                    <span class="author"><br>John Steinbeck</span>
-                </p>
-            </div>
-        </div> -->
         <div class="logreg">
-            <form action="">
-                <h2>Login</h2>
-                <div class="input-box">
+            <div class="login">
+                <form action="">
+                    <h2>Login</h2>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" required>
+                        <label >Email</label>
+                    </div>
+                    <div class="input-box">
 
-                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                    <input type="email" required>
-                    <label >Email</label>
-                    <script>
-                        const input = document.querySelector('.input-box input');
-                        const label = document.querySelector('.input-box label');
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="password" required>
+                        <label >Password</label>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <ion-icon name="eye-off-outline" id="eyeIcon"></ion-icon>
+                        </span>
+                    </div>
+                    <div class="forget-pass">
+                        <a href="#">Forget Password</a>
+                    </div>
+                    <button type="submit" value="log in">Login</button>
+                    <div class="register-link">
+                        <p>Don't have an account ? <a href="#" onclick="register()">Register Now</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="register">
+                <form action="">
+                    <h2>Register</h2>
                     
-                        input.addEventListener('input', () => {
-                            if (input.value) {
-                                label.classList.add('filled');
-                            } else {
-                                label.classList.remove('filled');
-                            }
-                        });
-                    </script>
-                </div>
-                <div class="input-box">
+                    <div class="input-box" id="move">
+                        <span class="icon"><ion-icon name="person"></ion-icon></span>
+                        <input type="text" required>
+                        <label >Name</label>
+                    </div>
 
-                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                    <input type="password" required>
-                    <label >Password</label>
-                </div>
-                <div class="forget-pass">
-                    <a href="#">Forget Password</a>
-                </div>
-                <button type="submit">Login</button>
-                <div class="register-link">
-                    <p>Don't have an account ? <a href="#">Register Now</a></p>
-                </div>
-            </form>
+                    <div class="input-box">
+                        <span class="icon"><ion-icon name="calendar"></ion-icon></span>
+                        <input type="date" required>
+                        <label id="bLabel">Birth-date</label>
+                    </div>
+
+                    <div class="sex">
+                        <div class="input-box" id="gender">
+                            <span class="icon" id="gIcon"><ion-icon name="man"></ion-icon></span>
+                            <input type="radio" name="Gender" required>
+                            <label id="gLabel">Male</label>
+                        </div>
+                    
+                        <div class="input-box" id="gender">
+            
+                            <span class="icon" id="gIcon"><ion-icon name="woman"></ion-icon></span>
+                            <input type="radio" name="Gender" required>
+                            <label id="fLabel">Female</label>
+                        </div>
+                    </div>
+                    
+
+                    <div class="input-box" id="move">
+                        <span class="icon" id="phone"><ion-icon name="call"></ion-icon></span>
+                        <input type="tel" required>
+                        <label >Phone</label>
+                    </div>
+
+                    <div class="input-box" id="move">
+                        <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                        <input type="email" id="eInput" required>
+                        <label id="eLabel">Email</label>
+
+                    </div>
+                    <div class="input-box" id="move">
+                        <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                        <input type="password" id="password" required>
+                        <label >Password</label>
+                        <span class="toggle-password" onclick="togglePasswordVisibility()">
+                            <ion-icon name="eye-off-outline" id="eyeIcon"></ion-icon>
+                        </span>
+                    </div>
+                    <button type="submit" id="rButton" value="Register">Register</button>
+                    <div class="register-link">
+                        <p>have an account ? <a href="#" onclick="login()">Login Now</a></p>
+                    </div>
+                </form>
+            </div>
         </div>
         
     </div>
@@ -63,6 +102,7 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src="login.js"></script>
+    <!-- <script src="login.js"></script> -->
+    <script src="script.js"></script>
 </body>
 </html>
