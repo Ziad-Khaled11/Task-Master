@@ -7,41 +7,56 @@
     <title>Document</title>
 </head>
 <body>
+    
     <div class="login-box">
-        <form action="">
-            <h2>Login</h2>
-            <div class="input-box">
-                
-                <span class="icon"><ion-icon name="mail"></ion-icon></span>
-                <input type="email" required>
-                <label >Email</label>
-                <script>
-                    const input = document.querySelector('.input-box input');
-                    const label = document.querySelector('.input-box label');
-                
-                    input.addEventListener('input', () => {
-                        if (input.value) {
-                            label.classList.add('filled');
-                        } else {
-                            label.classList.remove('filled');
-                        }
-                    });
-                </script>
+        <!-- <div class="content">
+            <div class="text">
+                <h2>
+              
+                    Welocme !<br><span>To Task Master</span>
+                </h2>    
+                <p>We have to make a mark<br>
+                    even if it's only a skribble
+                    <span class="author"><br>John Steinbeck</span>
+                </p>
             </div>
-            <div class="input-box">
+        </div> -->
+        <div class="logreg">
+            <form action="">
+                <h2>Login</h2>
+                <div class="input-box">
 
-                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
-                <input type="password" required>
-                <label >Password</label>
-            </div>
-            <div class="forget-pass">
-                <a href="#">Forget Password</a>
-            </div>
-            <button type="submit">Login</button>
-            <div class="register-link">
-                <p>Don't have an account ? <a href="#">Register Now</a></p>
-            </div>
-        </form>
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label >Email</label>
+                    <script>
+                        const input = document.querySelector('.input-box input');
+                        const label = document.querySelector('.input-box label');
+                    
+                        input.addEventListener('input', () => {
+                            if (input.value) {
+                                label.classList.add('filled');
+                            } else {
+                                label.classList.remove('filled');
+                            }
+                        });
+                    </script>
+                </div>
+                <div class="input-box">
+
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label >Password</label>
+                </div>
+                <div class="forget-pass">
+                    <a href="#">Forget Password</a>
+                </div>
+                <button type="submit">Login</button>
+                <div class="register-link">
+                    <p>Don't have an account ? <a href="#">Register Now</a></p>
+                </div>
+            </form>
+        </div>
         
     </div>
     

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "itim";
-    src: url("Resources/Itim-Regular.ttf");
+    src: url('../resources/Itim/Itim-Regular.ttf');
 }
 *{
     margin: 0;
@@ -9,29 +9,45 @@
     font-family: "itim";
 }
 body{
+    background: url(https://picsum.photos/1920/1400?grayscale&blur=2) no-repeat;
+    /* background: url(https://api.unsplash.com/photos/random?client_id=f73QLZJ_DnewbyJVDRtmRSkX1-034SrHHq7amCJCfdc) no-repeat; */
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
 .login-box{
-    z-index: 10;
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50.1%;
     transform: translateX(-50%) translateY(-50%);
-    text-align: center;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
+    width: 65%;
+    height: 550px;
+    margin: 0;
     border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+.logreg{
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust positioning to be exactly centered */
+    width: 42%; /* Width of the element */
+    height: 101%; /* Height of the element */
+    border-radius: 20px;
+    background: transparent;
+    text-align: center;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(20px);
+    
 }
-h2{
+
+.logreg h2{
     color: white;
     text-align: center;
     font-size: 2em;
@@ -39,7 +55,7 @@ h2{
 .input-box{
     position: relative;
     width: 310px;
-    margin: 30px 0;
+    margin: 30px auto;
     border-bottom: 2px solid white;
 }
 
@@ -124,3 +140,121 @@ button{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+/* Add this CSS for the canvas container */
+.canvas-container {
+    position: relative;
+    overflow: hidden; /* Ensures the canvas is clipped to the rounded corners */
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; /* The desired border-radius */
+}
+  
+
+@media (max-width: 1200px) {
+    /* .login-box {
+        width: 75%;
+        height: auto;
+    } */
+
+    .logreg {
+        width: 50%;
+    }
+
+    .input-box {
+        width: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    /* .login-box {
+        width: 80%;
+    } */
+
+    .logreg {
+        width: 60%;
+    }
+
+    .input-box {
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    /* .login-box {
+        width: 90%;
+        height: auto;
+    } */
+
+    .logreg {
+        width: 70%;
+        height: auto;
+        padding: 20px;
+    }
+
+    .logreg h2 {
+        font-size: 1.8em;
+    }
+
+    .input-box {
+        width: 200px;
+    }
+
+    button {
+        height: 50px;
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 576px) {
+    /* .login-box {
+        width: 100%;
+        height: auto;
+    } */
+
+    .logreg {
+        width: 90%;
+        height: auto;
+    }
+
+    .logreg h2 {
+        font-size: 1.6em;
+    }
+
+    .input-box {
+        width: 180px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 1.1em;
+    }
+
+    .register-link {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 375px) {
+    .logreg {
+        width: 95%;
+    }
+
+    .input-box {
+        width: 160px;
+    }
+
+    .logreg h2 {
+        font-size: 1.4em;
+    }
+
+    button {
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
