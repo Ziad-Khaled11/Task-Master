@@ -89,3 +89,7 @@ function register() {
     Login.style.display = 'none';
     Register.style.display = 'block';
 }
+
+function changePage() {
+    window.location.href = '../main\ page/main\ page.html';
+}
