@@ -9,15 +9,20 @@
     font-family: "itim";
 }
 body{
-    background: url(https://picsum.photos/1920/1400?grayscale&blur=2) no-repeat;
+    /* background: url(https://picsum.photos/1920/1400?grayscale&blur=2) no-repeat; */
     /* background: url(https://api.unsplash.com/photos/random?client_id=f73QLZJ_DnewbyJVDRtmRSkX1-034SrHHq7amCJCfdc) no-repeat; */
+    /* background-image: url('../resources/bg.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;  */
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-.login-box{
+/* .login-box{
     position: absolute;
     top: 50%;
     left: 50.1%;
@@ -27,15 +32,17 @@ body{
     margin: 0;
     border-radius: 20px;
     border: 2px solid rgba(255, 255, 255, .5);
-}
+} */
+
+
 
 .logreg{
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust positioning to be exactly centered */
-    width: 42%; /* Width of the element */
-    height: 101%; /* Height of the element */
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 40%; 
+    height: 70%; 
     border-radius: 20px;
     background: transparent;
     text-align: center;
@@ -43,8 +50,17 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(20px);
-    
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+/* .register{
+    display: none;
+} */
+
+.login{
+    display: none;
 }
 
 .logreg h2{
@@ -55,7 +71,7 @@ body{
 .input-box{
     position: relative;
     width: 310px;
-    margin: 30px auto;
+    margin: 50px auto;
     border-bottom: 2px solid white;
 }
 
@@ -70,9 +86,9 @@ body{
     transition: .5s;
 
 }
-.input-box input:focus~label,
-.input-box label.filled,
-.input-box input:valid~label {
+.login .input-box input:focus~label,
+.login .input-box label.filled,
+.login .input-box input:valid~label {
     top: -5px;
 }
 
@@ -85,6 +101,10 @@ body{
     color: white;
     font-size: 1em;
     padding: 0 35px 0 5px;
+}
+
+#password{
+    padding: 0 65px 0 5px;
 }
 
 .input-box .icon{
@@ -141,6 +161,70 @@ button{
     text-decoration: underline;
 }
 
+.login{
+    display: flex;
+}
+
+.register{
+    display: none;
+} 
+
+/* register */
+
+.register {
+    position: relative;
+    max-width: 400px;  
+
+}
+
+.register .input-box{
+    margin: 10px auto;
+}
+
+.sex{
+    display: flex;
+    gap: -100;
+    margin-top: 20px;
+}
+
+#gender {
+    display: flex;
+    align-items: center;
+    border-bottom: 0;
+}
+#gender input{
+    transform: scale(0.4);
+}
+
+#gIcon{
+    left: 90px;
+    top: 0.5px;
+}
+
+#gLabel{
+    top: 23px;
+    left: 45px;
+}
+
+#fLabel{
+    top: 23px;
+    left: 30px;
+}
+
+#bLabel{
+    top:3px
+}
+
+.register #move input:focus~label,
+.register #move label.filled,
+.register #move input:valid~label {
+    top: 3px;
+}
+
+#rButton{
+    width: 80%;
+}
+
 /* Add this CSS for the canvas container */
 .canvas-container {
     position: relative;
@@ -149,7 +233,26 @@ button{
     height: 100%;
     border-radius: 20px; /* The desired border-radius */
 }
-  
+
+
+.input-box .toggle-password {
+    position: absolute;
+    right: 40px; /* Position the eye icon on the right */
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+    visibility: visible; /* Always visible */
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+/* Default styles here */
 
 @media (max-width: 1200px) {
     /* .login-box {
@@ -159,16 +262,22 @@ button{
 
     .logreg {
         width: 50%;
+        height: 60%;
     }
 
     .input-box {
         width: 250px;
+    }
+
+    #rButton {
+        width: 80%;
     }
 }
 
 @media (max-width: 992px) {
     /* .login-box {
         width: 80%;
+        height: 80%;
     } */
 
     .logreg {
@@ -177,6 +286,10 @@ button{
 
     .input-box {
         width: 220px;
+    }
+    
+    .sex {
+        gap: 20px; /* Adjust spacing between items */
     }
 }
 
@@ -187,12 +300,11 @@ button{
 
     /* .login-box {
         width: 90%;
-        height: auto;
+        height: 80%; 
     } */
 
     .logreg {
-        width: 70%;
-        height: auto;
+        width: 60%;
         padding: 20px;
     }
 
@@ -208,17 +320,19 @@ button{
         height: 50px;
         font-size: 1.2em;
     }
+
+    
 }
 
 @media (max-width: 576px) {
     /* .login-box {
-        width: 100%;
-        height: auto;
+        width: 95%;
+        height: 80%; 
     } */
 
     .logreg {
-        width: 90%;
-        height: auto;
+        width: 80%;
+        height: 80%;
     }
 
     .logreg h2 {
@@ -237,11 +351,17 @@ button{
     .register-link {
         font-size: 1em;
     }
+    
 }
 
 @media (max-width: 375px) {
+    /* .login-box {
+        width: 90%;
+        height: 90%; 
+    } */
     .logreg {
-        width: 95%;
+        width: 80%;
+        height: 90%;
     }
 
     .input-box {
@@ -258,3 +378,33 @@ button{
     }
 }
 
+
+@media (max-width: 375px) {
+    .sex {
+        margin-top: 0;
+        margin-bottom: 0;
+      flex-direction: column;
+      gap: 0px; /* Decreased gap between items */
+    }
+
+
+    #gender input {
+      transform: scale(0.2);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .female{
+        top:-10px;
+    }
+  
+    #gIcon, #gLabel, #fLabel, #bLabel {
+      font-size: 1em;
+    }
+    #gLabel {
+        left: 10px;
+    }
+    #fLabel{
+        left: 10px;
+    }
+  }
