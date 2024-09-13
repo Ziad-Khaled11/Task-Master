@@ -76,6 +76,11 @@
             sidebar.classList.toggle('active');
         });
     }
+    document.onclick = function(e){
+        if(!btn.contains(e.target) && !sidebar.contains(e.target)){
+            sidebar.classList.remove('active');
+        }
+    }
 });
     </script>
 </body>

@@ -16,7 +16,7 @@
 .pannel_icon{
     width: 6.5vh; /* Responsive size based on viewport width */
     height: auto; /* Maintain aspect ratio */
-    transform: translateX(-2vh);
+    transform: translateX(-1vh);
 }
 .content {
     position: relative; /* Allows positioning of child elements */
@@ -68,6 +68,7 @@
     margin-right: 2vh;
     position: absolute;
     margin-bottom: -1.2vh;
+    white-space: nowrap;
 }
 .side-bar ul li a {
     text-decoration: none;
@@ -90,4 +91,89 @@
 }
 .active{
     color: white;
+}
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .icon {
+        top: 2vh;
+        left: 2vh;
+        width: 8vh;
+    }
+
+    .side-bar {
+        width: 10vh;
+    }
+
+    .side-bar.active {
+        width: 25vh;
+    }
+
+    .nav-item {
+        font-size: 1rem;
+    }
+    .pannel-icon{
+        margin-right: 5vh;
+    }
+}
+
+/* Medium devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .icon {
+        top: 2vh;
+        left: 3vh;
+        width: 9vh;
+    }
+
+    .side-bar {
+        width: 12vh;
+    }
+
+    .side-bar.active {
+        width: 30vh;
+    }
+    .nav-item {
+        font-size: 0.7rem;
+    }
+    .side-bar ul li .log-out{
+        margin-bottom: -15vh;
+     }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .icon {
+        top: 1vh;
+        left: 3vh;
+        width: 10vh;
+    }
+
+    .side-bar {
+        width: 10vh;
+    }
+
+    .side-bar.active {
+        width: 27vh;
+    }
+
+    .nav-item {
+        font-size: 1.7rem;
+    }
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .icon {
+        top: 1vh;
+        left: 3.5vh;
+        width: 10vh;
+    }
+
+    .side-bar {
+        width: 12vh;
+    }
+
+    .side-bar.active {
+        width: 32vh;
+    }
 }
