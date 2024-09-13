@@ -46,7 +46,7 @@ body {
    .slogan{
     font-size: 3.5vw;
    }
-
+}
 @media (max-width: 768px) {
     .logo {
         width: 70%; /* Increase width on smaller screens */
