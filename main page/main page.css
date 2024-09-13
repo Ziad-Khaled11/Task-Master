@@ -37,6 +37,16 @@ body {
 }
 
 /* Media Queries for Smaller Screens */
+
+@media (max-width: 575.98px) {
+   .logo{
+    width: 60%;
+    height: 50%;
+   }
+   .slogan{
+    font-size: 3.5vw;
+   }
+
 @media (max-width: 768px) {
     .logo {
         width: 70%; /* Increase width on smaller screens */
@@ -46,25 +56,39 @@ body {
     .slogan {
         font-size: 7vw; /* Slightly increase font size */
     }
+
 }
 
-@media (max-width: 480px) {
-    .logo {
-        width: 80%; /* Further increase width for smaller devices */
-        max-width: 40vh; /* Further restrict max-width */
-    }
 
-    .slogan {
-        font-size: 7vw; /* Adjust font size for very small screens */
-    }
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+    .logo{
+        width: 60%;
+        height: 50%;
+       }
+       .slogan{
+        font-size: 3vw;
+       }
 }
 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1024px) {
+    .logo{
+        width: 70%;
+        height: 50%;
+        margin-bottom: 3vh;
+       }
+       .slogan{
+        font-size: 3vw;
+       }
+}
 
 @font-face {
     font-family: "Itim";
     src: url('../resources/Itim/Itim-Regular.ttf');
 }
-.side-pannel-page{
+/* Base styles for .side-pannel-page */
+.side-pannel-page {
     width: 30vh; /* Adjust as needed */
     height: 100vh; /* Full viewport height */
     position: fixed;
@@ -102,5 +126,4 @@ body {
         bottom: 0;
     }
 }
-
 

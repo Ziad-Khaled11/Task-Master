@@ -16,7 +16,7 @@
 .pannel_icon{
     width: 6.5vh; /* Responsive size based on viewport width */
     height: auto; /* Maintain aspect ratio */
-    transform: translateX(-2vh);
+    transform: translateX(-1vh);
 }
 .content {
     position: relative; /* Allows positioning of child elements */
@@ -50,7 +50,7 @@
     display: flex; /* Use flexbox for list items */
     align-items: center; /* Vertically center icon and text */
     padding: 0%;
-    transform:translate(-7vh,15vh);
+    transform:translate(-7.5vh,10vh);
     margin-bottom: 5vh;
     margin-top: 2.5vh;
 }
@@ -60,14 +60,16 @@
     width: 4vh; /* Fixed width for consistency */
     height: 4vh; /* Fixed height for consistency */
     margin-right: 6vh; /* Space between icon and text */
-    margin-bottom: 1.5vh;
+    margin-bottom: 1vh;
 }
 
 .nav-item {
     font-size: 1.4rem; /* Adjust font size if needed */
     margin-right: 2vh;
     position: absolute;
-    margin-bottom: -1.2vh;
+    margin-bottom: -1.5vh;
+    white-space: nowrap;
+    transform: translateY(0.75vh)
 }
 .side-bar ul li a {
     text-decoration: none;
@@ -86,8 +88,93 @@
     color: rgba(155, 162, 226, 1);
 }
 .side-bar ul li .log-out{
-   margin-bottom: -20vh;
+   margin-bottom: -18vh;
 }
 .active{
     color: white;
+}
+/* Small devices (landscape phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .icon {
+        top: 2vh;
+        left: 2vh;
+        width: 8vh;
+    }
+
+    .side-bar {
+        width: 10vh;
+    }
+
+    .side-bar.active {
+        width: 25vh;
+    }
+
+    .nav-item {
+        font-size: 1rem;
+    }
+    .pannel-icon{
+        margin-right: 5vh;
+    }
+}
+
+/* Medium devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .icon {
+        top: 2vh;
+        left: 3vh;
+        width: 9vh;
+    }
+
+    .side-bar {
+        width: 12vh;
+    }
+
+    .side-bar.active {
+        width: 30vh;
+    }
+    .nav-item {
+        font-size: 0.7rem;
+    }
+    .side-bar ul li .log-out{
+        margin-bottom: -15vh;
+     }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 768px) and (max-width: 992px) {
+    .icon {
+        top: 1vh;
+        left: 3vh;
+        width: 10vh;
+    }
+
+    .side-bar {
+        width: 10vh;
+    }
+
+    .side-bar.active {
+        width: 27vh;
+    }
+
+    .nav-item {
+        font-size: 1.7rem;
+    }
+    
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .icon {
+        top: 1vh;
+        left: 3.5vh;
+        width: 10vh;
+    }
+
+    .side-bar {
+        width: 12vh;
+    }
+
+    .side-bar.active {
+        width: 32vh;
+    }
 }
