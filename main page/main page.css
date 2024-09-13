@@ -6,6 +6,7 @@ body {
     background-attachment: fixed;
     background-position: center; /* Centers the background image */
     margin: 0;
+    padding-bottom: 10vh; 
 
     
 }
@@ -36,6 +37,16 @@ body {
 }
 
 /* Media Queries for Smaller Screens */
+
+@media (max-width: 575.98px) {
+   .logo{
+    width: 60%;
+    height: 50%;
+   }
+   .slogan{
+    font-size: 3.5vw;
+   }
+
 @media (max-width: 768px) {
     .logo {
         width: 70%; /* Increase width on smaller screens */
@@ -43,27 +54,41 @@ body {
     }
 
     .slogan {
-        font-size: 6vw; /* Slightly increase font size */
+        font-size: 7vw; /* Slightly increase font size */
     }
+
 }
 
-@media (max-width: 480px) {
-    .logo {
-        width: 80%; /* Further increase width for smaller devices */
-        max-width: 40vh; /* Further restrict max-width */
-    }
 
-    .slogan {
-        font-size: 7vw; /* Adjust font size for very small screens */
-    }
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 600px) and (max-width: 992px) {
+    .logo{
+        width: 60%;
+        height: 50%;
+       }
+       .slogan{
+        font-size: 3vw;
+       }
 }
 
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1024px) {
+    .logo{
+        width: 70%;
+        height: 50%;
+        margin-bottom: 3vh;
+       }
+       .slogan{
+        font-size: 3vw;
+       }
+}
 
 @font-face {
     font-family: "Itim";
     src: url('../resources/Itim/Itim-Regular.ttf');
 }
-.side-pannel-page{
+/* Base styles for .side-pannel-page */
+.side-pannel-page {
     width: 30vh; /* Adjust as needed */
     height: 100vh; /* Full viewport height */
     position: fixed;
@@ -74,3 +99,31 @@ body {
     border: none;
     background-color: transparent;
 }
+
+.Mfooter {
+    width: 100%;
+    height: 15vh;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border: none;
+    background-color: transparent; /* Optional background if needed */
+    overflow: hidden; /* To avoid scrollbars inside the iframe */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .Mfooter {
+        height: 12vh; /* Adjust footer height for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .Mfooter {
+        width: 100%;
+        height: 10vh; /* Further reduce height for smaller screens */
+        padding: 0;
+        bottom: 0;
+    }
+}
+

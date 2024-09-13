@@ -1,6 +1,6 @@
 @font-face {
     font-family: "itim";
-    src: url("Resources/Itim-Regular.ttf");
+    src: url('../resources/Itim/Itim-Regular.ttf');
 }
 *{
     margin: 0;
@@ -9,29 +9,61 @@
     font-family: "itim";
 }
 body{
+    /* background: url(https://picsum.photos/1920/1400?grayscale&blur=2) no-repeat; */
+    /* background: url(https://api.unsplash.com/photos/random?client_id=f73QLZJ_DnewbyJVDRtmRSkX1-034SrHHq7amCJCfdc) no-repeat; */
+    /* background-image: url('../resources/bg.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;  */
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
 }
-.login-box{
-    z-index: 10;
+/* .login-box{
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50.1%;
     transform: translateX(-50%) translateY(-50%);
-    text-align: center;
-    width: 400px;
-    height: 450px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .5);
+    width: 65%;
+    height: 550px;
+    margin: 0;
     border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, .5);
+} */
+
+
+
+.logreg{
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    width: 40%; 
+    height: 80%; 
+    border-radius: 20px;
+    background: transparent;
+    text-align: center;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, .5);
 }
-h2{
+
+/* .register{
+    display: none;
+} */
+
+.login{
+    display: none;
+}
+
+.logreg h2{
     color: white;
     text-align: center;
     font-size: 2em;
@@ -39,7 +71,7 @@ h2{
 .input-box{
     position: relative;
     width: 310px;
-    margin: 30px 0;
+    margin: 50px auto;
     border-bottom: 2px solid white;
 }
 
@@ -54,9 +86,9 @@ h2{
     transition: .5s;
 
 }
-.input-box input:focus~label,
-.input-box label.filled,
-.input-box input:valid~label {
+.login .input-box input:focus~label,
+.login .input-box label.filled,
+.login .input-box input:valid~label {
     top: -5px;
 }
 
@@ -69,6 +101,10 @@ h2{
     color: white;
     font-size: 1em;
     padding: 0 35px 0 5px;
+}
+
+#password{
+    padding: 0 65px 0 5px;
 }
 
 .input-box .icon{
@@ -124,3 +160,251 @@ button{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+.login{
+    display: flex;
+}
+
+.register{
+    display: none;
+} 
+
+/* register */
+
+.register {
+    position: relative;
+    max-width: 400px;  
+
+}
+
+.register .input-box{
+    margin: 10px auto;
+}
+
+.sex{
+    display: flex;
+    gap: -100;
+    margin-top: 20px;
+}
+
+#gender {
+    display: flex;
+    align-items: center;
+    border-bottom: 0;
+}
+#gender input{
+    transform: scale(0.4);
+}
+
+#gIcon{
+    left: 90px;
+    top: 0.5px;
+}
+
+#gLabel{
+    top: 23px;
+    left: 45px;
+}
+
+#fLabel{
+    top: 23px;
+    left: 30px;
+}
+
+#bLabel{
+    top:3px
+}
+
+.register #move input:focus~label,
+.register #move label.filled,
+.register #move input:valid~label {
+    top: 3px;
+}
+
+#rButton{
+    width: 80%;
+}
+
+/* Add this CSS for the canvas container */
+.canvas-container {
+    position: relative;
+    overflow: hidden; /* Ensures the canvas is clipped to the rounded corners */
+    width: 100%;
+    height: 100%;
+    border-radius: 20px; /* The desired border-radius */
+}
+
+
+.input-box .toggle-password {
+    position: absolute;
+    right: 40px; /* Position the eye icon on the right */
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    font-size: 1.2em;
+    visibility: visible; /* Always visible */
+}
+
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+
+/* Default styles here */
+
+@media (max-width: 1200px) {
+    /* .login-box {
+        width: 75%;
+        height: auto;
+    } */
+
+    .logreg {
+        width: 50%;
+        height: 70%;
+    }
+
+    .input-box {
+        width: 250px;
+    }
+
+    #rButton {
+        width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    /* .login-box {
+        width: 80%;
+        height: 80%;
+    } */
+
+    .logreg {
+        width: 60%;
+    }
+
+    .input-box {
+        width: 220px;
+    }
+    
+    .sex {
+        gap: 20px; /* Adjust spacing between items */
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px;
+    }
+
+    /* .login-box {
+        width: 90%;
+        height: 80%; 
+    } */
+
+    .logreg {
+        width: 60%;
+        padding: 20px;
+    }
+
+    .logreg h2 {
+        font-size: 1.8em;
+    }
+
+    .input-box {
+        width: 200px;
+    }
+
+    button {
+        height: 50px;
+        font-size: 1.2em;
+    }
+
+    
+}
+
+@media (max-width: 576px) {
+    /* .login-box {
+        width: 95%;
+        height: 80%; 
+    } */
+
+    .logreg {
+        width: 80%;
+        height: 80%;
+    }
+
+    .logreg h2 {
+        font-size: 1.6em;
+    }
+
+    .input-box {
+        width: 180px;
+    }
+
+    button {
+        height: 45px;
+        font-size: 1.1em;
+    }
+
+    .register-link {
+        font-size: 1em;
+    }
+    
+}
+
+@media (max-width: 375px) {
+    /* .login-box {
+        width: 90%;
+        height: 90%; 
+    } */
+    .logreg {
+        width: 80%;
+        height: 90%;
+    }
+
+    .input-box {
+        width: 160px;
+    }
+
+    .logreg h2 {
+        font-size: 1.4em;
+    }
+
+    button {
+        height: 40px;
+        font-size: 1em;
+    }
+}
+
+
+@media (max-width: 375px) {
+    .sex {
+        margin-top: 0;
+        margin-bottom: 0;
+      flex-direction: column;
+      gap: 0px; /* Decreased gap between items */
+    }
+
+
+    #gender input {
+      transform: scale(0.2);
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    .female{
+        top:-10px;
+    }
+  
+    #gIcon, #gLabel, #fLabel, #bLabel {
+      font-size: 1em;
+    }
+    #gLabel {
+        left: 10px;
+    }
+    #fLabel{
+        left: 10px;
+    }
+  }

@@ -16,6 +16,13 @@
             
             <ul>
                 <li>
+                    <a href="../main page/main page.html" target="_parent">
+                        <img src="../resources/icons/Home.png" alt="Home" class="pannel-icon">
+                        <span class="nav-item"> Home</span>
+                    </a>
+                    
+                </li>
+                <li>
                     <a href="../My day page/my-day-page.html" target="_parent">
                         <img src="../resources/icons/Sun.png" alt="My day" class="pannel-icon">
                         <span class="nav-item"> My Day</span>
@@ -36,13 +43,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../lists page/lists.html" target="_parent">
-                        <img src="../resources/icons/List.png" alt="add list" class="pannel-icon">
-                        <span class="nav-item"> Add list</span>
-                    </a>
-                    
-                </li>
-                <li>
                     <a href="../pomodoro page/pomodoro.html" target="_parent">
                         <img src="../resources/icons/Clock.png" alt="pomdoro" class="pannel-icon">
                         <span class="nav-item"> Pomdoro</span>
@@ -54,6 +54,13 @@
                         <img src="../resources/icons/Calendar.png" alt="Calendar" class="pannel-icon">
                         <span class="nav-item">Calendar</span>
                     </a>
+                </li>
+                <li>
+                    <a href="../lists page/lists.html" target="_parent">
+                        <img src="../resources/icons/User.png" alt="add list" class="pannel-icon">
+                        <span class="nav-item"> Profile</span>
+                    </a>
+                    
                 </li>
                 <li>
                     <div class = "log-out">
@@ -75,6 +82,12 @@
         btn.addEventListener('click', function() {
             sidebar.classList.toggle('active');
         });
+    }
+    document.onclick = function(e){
+        if(!btn.contains(e.target) && !sidebar.contains(e.target)){
+            sidebar.classList.remove('active');
+
+        }
     }
 });
     </script>
