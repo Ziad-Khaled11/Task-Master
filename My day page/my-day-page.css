@@ -159,72 +159,147 @@ ul li span:hover{
     background: #4D598F;
 }
 
+/* Media Queries */
 
-@media (max-width: 768px) {
+/* For tablets and larger phones */
 
+@media (max-width: 1200px) {
     .side-pannel-page {
-        width: 30vh; /* Original width for larger screens */
+        width: 25vh; /* Adjust width for larger tablets and smaller desktops */
     }
+    
     .myDay {
-        padding: 20px 15px 30px; /* Adjusted padding */
+        margin: 80px auto 20px; /* Adjust margin for screens up to 1200px */
+        padding: 35px 25px 60px;
+        width: 70%;
+        height: auto;
+    }
+
+    .myDay h2 img {
+        width: 27px; /* Slightly smaller image */
     }
 
     .row {
-        flex-direction: column; /* Set flex direction to column */
+        padding: 15px; /* Adjust padding */
     }
 
     input {
-        margin-bottom: 10px; /* Added bottom margin */
+        font-size: 18px;
+
     }
 
     button {
-        padding: 12px 20px; /* Adjusted padding */
-        font-size: 14px; /* Reduced font size */
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .myDay h2 {
-        font-size: 20px; /* Further reduced font size */
+        padding: 14px 40px; /* Adjust button padding */
     }
 
     ul li {
-        font-size: 16px; /* Reduced font size */
-        padding: 8px 6px 8px 30px; /* Adjusted padding */
+        font-size: 18px; /* Slightly smaller font size for list items */
     }
 
-    ul li::before {
-        height: 20px; /* Further reduced height */
-        width: 20px; /* Further reduced width */
-        top: 7px; /* Adjusted top position */
-        left: 5px; /* Adjusted left position */
+    .category {
+        flex: 1 1 45%; /* Adjust flex-basis for larger screens */
+        margin: 20px 0; /* Adjust margin */
+    }
+    #photo{
+        width: 50%; /* Adjust the percentage as needed */
+        height: auto;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .side-pannel-page {
+        width: 30vh; /* Adjust width for tablets */
+    }
+    
+    .myDay {
+        /* margin: 50px auto 20px; Reduce margin on smaller screens */
+        padding: 30px 20px 50px;
+        width: 80%;
+        height: auto;    
     }
 
-    ul li span {
-        width: 25px; /* Further reduced width */
-        height: 25px; /* Further reduced height */
-        font-size: 25px; /* Reduced font size */
-        line-height: 25px; /* Adjusted line height */
+    .myDay h2 img {
+        width: 25px; /* Smaller icon on smaller screens */
+    }
+
+    .row {
+        flex-direction: column; /* Stack items vertically on small screens */
+        padding: 10px; /* Reduce padding */
+    }
+
+    input {
+        font-size: 18px; /* Slightly smaller font size */
     }
 
     button {
-        width: 100%;
+        padding: 12px 30px; /* Adjust button padding */
+    }
+
+    ul li {
+        font-size: 18px; /* Smaller font size for list items */
+    }
+
+    .category {
+        flex: 1 1 100%; /* Full width for categories */
+        margin: 15px 0;
+    }
+    #photo{
+        width: 50%; /* Adjust the percentage as needed */
+        height: auto;
     }
 }
 
-@media (max-width: 600px) {
-    .category {
-        font-size: 14px; /* Smaller font size */
-        width: 100%;
+/* For small phones */
+@media (max-width: 480px) {
+    .side-pannel-page {
+        width: 27vh;
     }
-}
-/* Media query for very small screens */
-@media (max-width: 400px) {
-    .category {
-        font-size: 12px; /* Even smaller font size */
-        width: 100%;
-    
-    }
-}
 
+    .myDay {
+        /* margin: 20px auto; Further reduce margin */
+        padding: 20px 10px; /* Further adjust padding */
+        width: 70%;
+        height: 90%;
+        margin-left: 80px;
+    }
+
+    .myDay h2 img {
+        width: 20px; /* Even smaller icon */
+    }
+
+    .row {
+        padding: 5px; /* Further reduce padding */
+    }
+
+    input {
+        font-size: 16px;
+        margin-left: 65px;
+    }
+
+    button {
+        padding: 10px 20px; /* Adjust button padding */
+    }
+
+    ul li {
+        font-size: 16px; /* Smaller font size for list items */
+    }
+
+    .category {
+        display: flex;
+        flex-direction: column;
+
+        
+    }
+    .categorys{
+        margin-bottom: 5px;
+        margin-left: 10px;
+        margin-right: 0;
+
+    }
+    #photo{
+        width: 50%; 
+        height: auto;
+    }
+
+}
