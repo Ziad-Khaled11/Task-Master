@@ -1,0 +1,149 @@
+.side-pannel-page {
+    width: 30vh; /* Adjust as needed */
+    height: 100vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    left: 0; /* Aligns to the left of the screen */
+    border-right: 1px solid #ccc; /* Optional border */
+    overflow-y: auto; /* Scroll if needed */
+    border: none;
+    background-color: transparent;
+}
+body {
+    background-image: url('../resources/bg.png'); /* Update the path if necessary */
+    background-size: cover; /* Scales the image to cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed;
+    background-position: center; /* Centers the background image */
+    margin: 0;
+    padding-bottom: 10vh; 
+
+    
+}
+@font-face {
+    font-family: "Itim";
+    src: url('../resources/Itim/Itim-Regular.ttf');
+}
+.rect{
+    width: 60vh;
+    height: 60vh;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 0.8rem;
+}
+.circle{
+    display:flex;
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    position: relative;
+    transform: translate(24vh,-8vh);
+
+}
+.icon {
+    position: relative;
+    width: 4.5rem;
+    height: 4.5rem;
+    transform: translate(0.5vh, 0.5vh);
+    border-radius: 50%; /* Make the image circular */
+    object-fit: cover; /* Ensure the image fits the circle */
+}
+
+.button{
+    display: none;
+}
+.txt{
+    position: fixed;
+    transform: translate(-10vh,11vh);
+    text-align: center;
+    display: block;
+    width: 30vh;
+    background: rgba(6, 16, 55, 1);
+    color: #ADB1C5;
+    padding: 12px;
+    margin: 10px auto;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.quote-generator{
+    width: 30vh; /* Adjust as needed */
+    height: 50vh; /* Full viewport height */
+    position: fixed;
+    top: 0;
+    right: 0; /* Aligns to the left of the screen */
+    border-right: 1px solid #ccc; /* Optional border */
+    overflow-y: auto; /* Scroll if needed */
+    border: none;
+    background-color: transparent;
+}
+.input-box {
+    position: relative;
+    margin-bottom: 20px; /* Adds space between input boxes */
+    width: 100%;
+    margin-top: 50px;
+}
+
+.input-box input {
+    width: 70%; /* Ensure input takes up full width */
+    padding: 10px 40px; /* Adds padding for the text and icon */
+    background-color: #f0f4f8; /* Light gray background */
+    border: 2px solid transparent; /* Border is transparent by default */
+    border-radius: 8px; /* Rounded corners for modern look */
+    outline: none; /* Removes default blue outline */
+    font-size: 1rem; /* Modern font size */
+    color: #333; /* Dark text color */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    
+}
+
+
+
+.input-box input:focus ~ .label,
+.input-box input:not(:placeholder-shown) ~ .label {
+    top: -10px;
+    left: 10px;
+    font-size: 0.75rem; /* Shrink the label */
+    color: rgba(6, 16, 55, 1);/* Change color to blue on focus */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.input-box .label {
+    position: absolute;
+    top: 50%;
+    left: 40px; /* Leave space for the icon */
+    transform: translateY(-50%);
+    font-size: 1rem;
+    color: #8e8e8e; /* Light gray text color */
+    pointer-events: none;
+    transition: all 0.3s ease;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Right align for password toggle */
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #8e8e8e;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.save-button{
+    width: 40%;
+    transform: translateX(17vh);
+    padding: 10px 40px; /* Adds padding for the text and icon */
+    background-color: rgba(6, 16, 55, 1);; /* Light gray background */
+    border: 2px solid transparent; /* Border is transparent by default */
+    border-radius: 8px; /* Rounded corners for modern look */
+    outline: none; /* Removes default blue outline */
+    font-size: 1rem; /* Modern font size */
+    color: #ADB1C5;; /* Dark text color */
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

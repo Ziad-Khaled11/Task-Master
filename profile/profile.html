@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <link rel="icon" href="../resources/icons/User.png"  type="image/x-icon">
+    <title>Profile</title>
+    <!-- Connects the CSS file--> 
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class = "rect"> 
+        <div class="circle" alt="Overlay">
+            <img src="..//resources/icons/profile.png" class="icon" id="profile-pic">
+            <label for="input-file" class="txt"> Update image</label>
+            <input type="file" accept="image/jpeg, image/png, image/jpg" class="button" id="input-file">
+        </div>
+        <div class="register">
+            <form action="">
+                <div class="input-box" id="move">
+                    <span class="icon"><ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label class="label">Name</label>
+                </div>
+                <div class="input-box" id="move">
+                    <span class="icon" id="phone"><ion-icon name="call"></ion-icon></span>
+                    <input type="tel" required>
+                    <label class="label">Phone</label>
+                </div>
+
+                <div class="input-box" id="move">
+                    <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" id="eInput" required>
+                    <label id="eLabel "class="label">Email</label>
+
+                </div>
+                <div class="input-box" id="move">
+                    <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" id="password" required>
+                    <label class="label">Password</label>
+                    <span class="toggle-password" onclick="togglePasswordVisibility()">
+                        <ion-icon name="eye-off-outline" id="eyeIcon"></ion-icon>
+                    </span>
+                </div>
+                <button type="submit" id="rButton" value="Register" class="save-button">Save</button>
+                <div class="register-link">
+                </div>
+            </form>
+        </div>
+    </div>
+    <iframe src="../side pannel/side-pannel.html" class="side-pannel-page"name="contentFrame"></iframe>
+    <iframe src="../Quote generator/quote-generator.html" class="quote-generator" name="contentFrame"></iframe>
+    <!-- Connects the JS file-->
+    <script src="profile.js"></script>
+</body>
+</html>

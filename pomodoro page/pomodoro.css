@@ -174,7 +174,7 @@ body {
     overflow-y: auto; /* Scroll if needed */
     border: none;
     background-color: transparent;
-
+}
 /* Small devices (landscape phones, less than 576px) */
 @media (max-width: 575.98px) {
     :root {
