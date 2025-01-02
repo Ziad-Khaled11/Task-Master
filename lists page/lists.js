@@ -707,16 +707,24 @@ function saveData() {
         dateTime: li.dataset.dateTime,
         checked: li.dataset.checked // Save checked state
     }));
+    const listedTasks = Array.from(listedContainer.children).map(li => ({
+        content: li.innerHTML,
+        dateTime: li.dataset.dateTime,
+        checked: li.dataset.checked // Save checked state
+    }));
     const lists = Array.from(listnames.children).map(li => ({
         content: li.innerHTML
     }));
     localStorage.setItem("listsdata", JSON.stringify(tasks));
-    localStorage.setItem("list", JSON.stringify(lists));
+    localStorage.setItem("listeddata", JSON.stringify(listedTasks));
+    localStorage.setItem("listnames", JSON.stringify(lists));
     showImage();
 }
 
 function showData() {
     const tasks = JSON.parse(localStorage.getItem("listsdata"));
+    const listedTasks = JSON.parse(localStorage.getItem("listeddata"));
+    const lists = JSON.parse(localStorage.getItem("listnames"));
     if (tasks) {
         tasks.forEach(task => {
             let li = document.createElement('li');
@@ -730,6 +738,30 @@ function showData() {
                 li.classList.add('inComplete');
             }
             listContainer.appendChild(li);
+        });
+    }
+    if (listedTasks) {
+        listedTasks.forEach(task => {
+            let li = document.createElement('li');
+            li.innerHTML = task.content;
+            li.dataset.dateTime = task.dateTime;
+            li.dataset.checked = task.checked; // Restore checked state
+            if (task.checked === 'true') {
+                li.classList.add('checked', 'Complete');
+                li.classList.remove('inComplete');
+            } else {
+                li.classList.add('inComplete');
+            }
+            listedContainer.appendChild(li);
+        });
+    }
+    if (lists) {
+        lists.forEach(list => {
+            let li = document.createElement('li');
+            li.innerHTML = list.content;
+            listnames.appendChild(li);
+            const anchor = li.querySelector('a');
+            anchor.addEventListener('click', listNameClicked);
         });
     }
     showImage();
