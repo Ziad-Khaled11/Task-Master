@@ -140,12 +140,17 @@
                 <select class="listNameCombo" id="combo-box" name="options">
                 </select>
             </div>
+            <div class="Category">
+                <button class="categorys" id="Highall" onclick="high()" >High Priority</button>
+                <button class="categorys" id="Mediumall" onclick="medium()">Medium Priority</button>
+                <button class="categorys" id="Lowall" onclick="low()">Low Priority</button>
+            </div>
             <button class="but" onclick="addTask()">Add Task</button>
         </div>
         <div class="category">
-            <button class="categorys" id="High" onclick="" >High Priority</button>
-            <button class="categorys" id="Medium" onclick="">Medium Priority</button>
-            <button class="categorys" id="Low" onclick="">Low Priority</button>
+            <button class="categorys" id="highall" onclick="HighAll()" >High Priority</button>
+            <button class="categorys" id="mediumall" onclick="MediumAll()">Medium Priority</button>
+            <button class="categorys" id="lowall" onclick="LowAll()">Low Priority</button>
             <button class="categorys" id="remove" onclick="deleteAll()">Delete All</button>
         </div>
         <ul id="list-container"></ul>
@@ -172,12 +177,17 @@
                 <label for="timeL-box" id="timeLabel">Due Time</label>
                 <input type="time" id="timeL-box">
             </div>
+            <div class="category">
+                <button class="categorys" id="highaddlist" onclick="highlist()" >High Priority</button>
+                <button class="categorys" id="mediumaddlist" onclick="mediumlist()">Medium Priority</button>
+                <button class="categorys" id="lowaddlist" onclick="lowlist()">Low Priority</button>
+            </div>
             <button class="but" onclick="addTaskinList()">Add Task</button>
         </div>
         <div class="category-list">
-            <button class="categorys" id="High" onclick="" >High Priority</button>
-            <button class="categorys" id="Medium" onclick="">Medium Priority</button>
-            <button class="categorys" id="Low" onclick="">Low Priority</button>
+            <button class="categorys" id="High" onclick="High()" >High Priority</button>
+            <button class="categorys" id="Medium" onclick="Medium()">Medium Priority</button>
+            <button class="categorys" id="Low" onclick="Low()">Low Priority</button>
             <button class="categorys" id="remove" onclick="deleteList()">Delete All</button>
         </div>
         <ul id="listed-container"></ul>

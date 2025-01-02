@@ -125,7 +125,6 @@ complete.addEventListener("click", function() {
     let incompleted = document.querySelectorAll(".inComplete");
     if (complete.classList.contains("active")) {
         complete.classList.remove("active");
-        console.log("incomplete");
         completed.forEach(element => {
             element.style.display = 'flex';
         });
@@ -139,7 +138,6 @@ complete.addEventListener("click", function() {
             incomplete.classList.remove("active");   
         }
         complete.classList.add("active");
-        console.log("complete");
         completed.forEach(element => {
             element.style.display = 'flex';
         });
@@ -155,7 +153,6 @@ incomplete.addEventListener("click", function() {
     let incompleted = document.querySelectorAll(".inComplete");
     if (incomplete.classList.contains("active")) {
         incomplete.classList.remove("active");
-        console.log("incomplete");
         completed.forEach(element => {
             element.style.display = 'flex';
         });
@@ -168,7 +165,6 @@ incomplete.addEventListener("click", function() {
             complete.classList.remove("active");   
         }
         incomplete.classList.add("active");
-        console.log("complete");
         completed.forEach(element => {
             element.style.display = 'none';
         });
@@ -189,9 +185,6 @@ function dayPassed(){
         const differenceInDays = Math.floor(differenceInTime / oneDay);
         if (differenceInDays >= 1) {
             deleteAll();
-            console.log('A real day has passed.');
-        } else {
-            console.log('Less than a day has passed.');
         }
     }
 }

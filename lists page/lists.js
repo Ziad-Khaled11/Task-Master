@@ -26,6 +26,18 @@ const listTasks = document.querySelector('.listed-tasks');
 const addText = document.querySelector('.add');
 const Category = document.querySelector('.category');
 const CategoryList = document.querySelector('.category-list');
+const highall = document.getElementById('Highall');
+const lowall = document.getElementById('Lowall');
+const mediumall = document.getElementById('Mediumall');
+const Highlist = document.getElementById('highaddlist');
+const Lowlist = document.getElementById('lowaddlist');
+const Mediumlist = document.getElementById('mediumaddlist');
+const HIGH = document.getElementById('High');
+const LOW = document.getElementById('Low');
+const MEDIUM = document.getElementById('Medium');
+const HIGHALL = document.getElementById('highall');
+const LOWALL = document.getElementById('lowall');
+const MEDIUMALL = document.getElementById('mediumall');
 let listedTasksView = false;
 let counter = 0;
 
@@ -141,6 +153,7 @@ function addTask() {
         const taskDate = dateBox.value;
         const taskDateTime = new Date(`${taskDate}T${taskTime}`);
         let li = document.createElement('li');
+        let allLi = document.createElement('li');
         li.innerHTML = `
         <div class="tasks-container">
         <ol><ion-icon name="clipboard-outline"></ion-icon>${taskText}</ol>
@@ -150,14 +163,45 @@ function addTask() {
         `;
         li.dataset.dateTime = taskDateTime.toISOString();
         li.dataset.checked = 'false'; // Default checked state
-        listContainer.appendChild(li);
         let span = document.createElement('span');
         span.innerHTML = "\u00d7";
         li.appendChild(span);
         li.classList.add('inComplete');
+        let className = comboBox.value.replace(/ /g, '-');
+        li.classList.add(className);
+        if (lowall.classList.contains('active')) {
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        else if (mediumall.classList.contains('active')) {
+            li.classList.add('medium');
+            allLi.classList.add('medium');
+        }
+        else if (highall.classList.contains('active')){
+            li.classList.add('high');
+            allLi.classList.add('high');
+        }
+        else{
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        allLi.innerHTML = li.innerHTML;
+        allLi.dataset.dateTime = taskDateTime.toISOString();
+        allLi.classList.add(className);
+        listContainer.appendChild(li);
+        listedContainer.appendChild(allLi);
         inputBox.value = "";
         timeBox.value = "";
         dateBox.value = "";
+        if (lowall.classList.contains('active')) {
+            lowall.classList.remove('active');
+        }
+        if (mediumall.classList.contains('active')) {
+            mediumall.classList.remove('active');
+        }
+        if (highall.classList.contains('active')){
+            highall.classList.remove('active');
+        }
         saveData();
     }
 }
@@ -256,6 +300,22 @@ function addTaskinList() {
         span.classList.add('remove-task');
         li.appendChild(span);
         li.id = UID;
+        if (Lowlist.classList.contains('active')) {
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        else if (Mediumlist.classList.contains('active')) {
+            li.classList.add('medium');
+            allLi.classList.add('medium');
+        }
+        else if (Highlist.classList.contains('active')){
+            li.classList.add('high');
+            allLi.classList.add('high');
+        }
+        else{
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
         allLi.innerHTML = li.innerHTML;
         allLi.dataset.dateTime = taskDateTime.toISOString();
         allLi.classList.add(className);
@@ -266,7 +326,15 @@ function addTaskinList() {
         inputLBox.value = "";
         timeLBox.value = "";
         dateLBox.value = "";
-
+        if (Lowlist.classList.contains('active')) {
+            Lowlist.classList.remove('active');
+        }
+        if (Mediumlist.classList.contains('active')) {
+            Mediumlist.classList.remove('active');
+        }
+        if (Highlist.classList.contains('active')){
+            Highlist.classList.remove('active');
+        }
         span.addEventListener('click', function() {
             li.remove();
             allLi.remove(); 
@@ -291,7 +359,24 @@ function listNameClicked(event) {
     listName.innerHTML = title
     listedTasksView = true;
     const items = listedContainer.querySelectorAll('li');
-
+    if (Lowlist.classList.contains('active')) {
+        Lowlist.classList.remove('active');
+    }
+    if (Mediumlist.classList.contains('active')) {
+        Mediumlist.classList.remove('active');
+    }
+    if (Highlist.classList.contains('active')){
+        Highlist.classList.remove('active');
+    }
+    if (LOW.classList.contains('active')) {
+        LOW.classList.remove('active');
+    }
+    if (MEDIUM.classList.contains('active')) {
+        MEDIUM.classList.remove('active');
+    }
+    if (HIGH.classList.contains('active')){
+        HIGH.classList.remove('active');
+    }
     items.forEach(item => {
         if (item.classList.contains(className)) {
             item.style.display = 'flex';
@@ -301,12 +386,31 @@ function listNameClicked(event) {
     });
 }
 
+
 function allClicked(){
     tasks.style.display = 'block';
     listTasks.style.display = 'none';
     inputBox.value = "";
     timeBox.value = "";
     dateBox.value = "";
+    if (lowall.classList.contains('active')) {
+        lowall.classList.remove('active');
+    }
+    if (mediumall.classList.contains('active')) {
+        mediumall.classList.remove('active');
+    }
+    if (highall.classList.contains('active')){
+        highall.classList.remove('active');
+    }
+    if (LOWALL.classList.contains('active')) {
+        LOWALL.classList.remove('active');
+    }
+    if (MEDIUMALL.classList.contains('active')) {
+        MEDIUMALL.classList.remove('active');
+    }
+    if (HIGHALL.classList.contains('active')){
+        HIGHALL.classList.remove('active');
+    }
 }
 
 
@@ -343,7 +447,259 @@ function isTaskExpired(taskDateTime) {
     return new Date() > taskDateTime;
 }
 
+function high(){
+    if (lowall.classList.contains('active')) {
+        lowall.classList.remove('active');
+    }
+    if (mediumall.classList.contains('active')) {
+        mediumall.classList.remove('active');
+    }
+    if (highall.classList.contains('active')){
+        highall.classList.remove('active');
+    }
+    else{
+        highall.classList.add('active');
+    }
+}
 
+function low(){
+    if (lowall.classList.contains('active')) {
+        lowall.classList.remove('active');
+    }
+    else{
+        lowall.classList.add('active');
+    }
+    if (mediumall.classList.contains('active')) {
+        mediumall.classList.remove('active');
+    }
+    if (highall.classList.contains('active')){
+        highall.classList.remove('active');
+    }
+}
+
+function medium() {
+    if (lowall.classList.contains('active')) {
+        lowall.classList.remove('active');
+    }
+    if (mediumall.classList.contains('active')) {
+        mediumall.classList.remove('active');
+    }
+    else{
+        mediumall.classList.add('active');
+    }
+    if (highall.classList.contains('active')){
+        highall.classList.remove('active');
+    }
+}
+
+function highlist(){
+    if (Lowlist.classList.contains('active')) {
+        Lowlist.classList.remove('active');
+    }
+    if (Mediumlist.classList.contains('active')) {
+        Mediumlist.classList.remove('active');
+    }
+    if (Highlist.classList.contains('active')){
+        Highlist.classList.remove('active');
+    }
+    else{
+        Highlist.classList.add('active');
+    }
+}
+
+function lowlist(){
+    if (Lowlist.classList.contains('active')) {
+        Lowlist.classList.remove('active');
+    }
+    else{
+        Lowlist.classList.add('active');
+    }
+    if (Mediumlist.classList.contains('active')) {
+        Mediumlist.classList.remove('active');
+    }
+    if (Highlist.classList.contains('active')){
+        Highlist.classList.remove('active');
+    }
+}
+
+function mediumlist() {
+    if (Lowlist.classList.contains('active')) {
+        Lowlist.classList.remove('active');
+    }
+    if (Mediumlist.classList.contains('active')) {
+        Mediumlist.classList.remove('active');
+    }
+    else{
+        Mediumlist.classList.add('active');
+    }
+    if (Highlist.classList.contains('active')){
+        Highlist.classList.remove('active');
+    }
+}
+
+function High(){
+    const items = listedContainer.querySelectorAll('li');
+    if (LOW.classList.contains('active')) {
+        LOW.classList.remove('active');
+    }
+    if (MEDIUM.classList.contains('active')) {
+        MEDIUM.classList.remove('active');
+    }
+    if (HIGH.classList.contains('active')){
+        HIGH.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        HIGH.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('high')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
+
+function Low(){
+    const items = listedContainer.querySelectorAll('li');
+    
+    if (MEDIUM.classList.contains('active')) {
+        MEDIUM.classList.remove('active');
+    }
+    if (HIGH.classList.contains('active')){
+        HIGH.classList.remove('active');
+    }
+    if (LOW.classList.contains('active')) {
+        LOW.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        LOW.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('low')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
+
+function Medium(){
+    const items = listedContainer.querySelectorAll('li');
+    if (LOW.classList.contains('active')) {
+        LOW.classList.remove('active');
+    }
+    if (HIGH.classList.contains('active')){
+        HIGH.classList.remove('active');
+    }
+    if (MEDIUM.classList.contains('active')) {
+        MEDIUM.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        MEDIUM.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('medium')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
+
+function HighAll(){
+    const items = listContainer.querySelectorAll('li');
+    if (LOWALL.classList.contains('active')) {
+        LOWALL.classList.remove('active');
+    }
+    if (MEDIUMALL.classList.contains('active')) {
+        MEDIUMALL.classList.remove('active');
+    }
+    if (HIGHALL.classList.contains('active')){
+        HIGHALL.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        HIGHALL.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('high')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
+
+function LowAll(){
+    const items = listContainer.querySelectorAll('li');
+    
+    if (MEDIUMALL.classList.contains('active')) {
+        MEDIUMALL.classList.remove('active');
+    }
+    if (HIGHALL.classList.contains('active')){
+        HIGHALL.classList.remove('active');
+    }
+    if (LOWALL.classList.contains('active')) {
+        LOWALL.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        LOWALL.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('low')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
+
+function MediumAll(){
+    const items = listContainer.querySelectorAll('li');
+    if (LOWALL.classList.contains('active')) {
+        LOWALL.classList.remove('active');
+    }
+    if (HIGHALL.classList.contains('active')){
+        HIGHALL.classList.remove('active');
+    }
+    if (MEDIUMALL.classList.contains('active')) {
+        MEDIUMALL.classList.remove('active');
+        items.forEach(item => {
+            item.style.display = 'flex';
+        });
+    }
+    else{
+        MEDIUMALL.classList.add('active');
+        items.forEach(item => {
+            if (item.classList.contains('medium')) {
+                item.style.display = 'flex';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+}
 
 function saveData() {
     const tasks = Array.from(listContainer.children).map(li => ({
@@ -433,6 +789,21 @@ function deleteAll() {
     listedContainer.innerHTML = '';
     showImage();
 }
+
+function deleteList(){
+    const className = listName.innerHTML.replace(/ /g, '-'); 
+    const items = listedContainer.querySelectorAll('li');
+    const allItems = listContainer.querySelectorAll('li');
+    items.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+    allItems.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+}
+
 
 function uniqueId() {
     return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 16);

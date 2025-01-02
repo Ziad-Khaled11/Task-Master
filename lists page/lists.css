@@ -145,7 +145,7 @@ nav.active{
     height: 120px;
     right: 0;
     left: auto;
-    width: 90.3%;
+    width: 90.5%;
 }
 
 
@@ -627,8 +627,18 @@ input{
     flex-direction: row;
     position: relative;
     text-align: center;
+    gap: 10px; 
+}
+
+.Category{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    padding: 15px;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
     gap: 10px;
-    
 }
 .category-list{
     display: flex;
