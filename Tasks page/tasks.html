@@ -7,9 +7,48 @@
     <title>Tasks</title>
 </head>
 <body>
-    <!-- Connects the JS file-->
-    <script src="tasks.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
     <iframe src="../side pannel/side-pannel.html" class="side-pannel-page"name="contentFrame"></iframe>
     <iframe src="../Quote generator/quote-generator.html" class="quote-generator" name="contentFrame"></iframe>
+    <div class="tasks">
+        <h2>Tasks List <img src="../resources/icons/Check square.png"></h2>
+        <div class="inputs">
+            <input type="text" id="input-box" placeholder="Write your task" maxlength="38">
+            <div class="row">
+                <label for="date-box">Due Date</label>
+                <input type="date" id="date-box">
+            </div>
+            <div class="row">
+                <label for="time-box" id="timeLabel">Due Time</label>
+                <input type="time" id="time-box">
+            </div>
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <div class="stats">
+            <div class="details">
+                <h1>Progress</h1>
+                <p>Keep it up!</p>
+                <div id="progressbar">
+                    <div id="progress"></div>
+                </div>
+                <button class="categorys" id="remove" onclick="deleteAll()">Delete All</button>
+            </div>
+            <div class="statsNum">
+                <p id="numbers"></p>
+            </div>
+            
+        </div>
+
+        <ul id="list-container"></ul>
+        <h3 class="empty-tasks">No Tasks Added</h3>
+        <img class="empty-tasks" src="../resources/Tasks.png" id="photo">
+        <h3 class="empty-tasks">Tasks Show up here!</h3>
+        <h3 class="empty-tasks">Get tasks done with timeline<br/> Tasks which you don't want to be a part of any list you created</h3>
+    </div>
+    <!-- Connects the JS file-->
+    <script src="tasks.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
 </body>
 </html>

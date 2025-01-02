@@ -138,19 +138,37 @@ ul li.checked::before{
 
 ul li span{
     position: absolute;
-    right: 0;
+    right: 0px;
     top: 5px;
-    width: 40px;
+    width: 100px;
     height: 40px;
-    font-size: 40px;
+    font-size: 20px;
     color: #2E2F70;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+    display: flex;
+    flex-direction: row;
 }
 
-ul li span:hover{
-    background: whitesmoke;
+span ion-icon{
+    scale:1.5;
+    margin-right: 15px;
+    margin-top: 20px;
+}
+
+ol{
+    font-size: 40px;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+ul li ol:hover{
+    font-size: 50px;
+}
+
+span ion-icon:hover{
+    scale:1.6;
 }
 
 .empty-tasks{
@@ -171,6 +189,7 @@ ul li span:hover{
 .categorys.active{
     background: #4D598F;
 }
+
 
 /* Media Queries */
 
