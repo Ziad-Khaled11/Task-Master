@@ -33,8 +33,22 @@ function togglePasswordVisibility() {
         eyeIcon.name = 'eye-off-outline'; // Change to 'eye-off' icon
     }
 }
+const backgrounds = [
+    '../resources/login-bg/download (10).jpg',
+    '../resources/login-bg/color_periwinkle.jpg',
+    '../resources/login-bg/download (9).jpg',
+    '../resources/login-bg/steam-design-with-raindrops.jpg',
+    '../resources/login-bg/login.jpg'
+];
 
-const accessKey = 'f73QLZJ_DnewbyJVDRtmRSkX1-034SrHHq7amCJCfdc'; // Replace with your Unsplash access key
+// Get a random background
+const randomIndex = Math.floor(Math.random() * backgrounds.length);
+const randomBackground = backgrounds[randomIndex];
+
+// Set the body background image
+document.body.style.backgroundImage = `url('${randomBackground}')`;
+
+/*const accessKey = 'f73QLZJ_DnewbyJVDRtmRSkX1-034SrHHq7amCJCfdc'; // Replace with your Unsplash access key
 const query = 'dark blue universe'; // The search query
 const url = `https://api.unsplash.com/search/photos?query=${query}&client_id=${accessKey}`;
 
@@ -78,7 +92,7 @@ fetch(url)
     })
     .catch(error => {
         console.error('Error fetching photos:', error);
-    });
+    });*/
 
 function login() {
     Login.style.display = 'flex';
