@@ -13,7 +13,6 @@
     <!-- Connects the JS file-->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    
     <iframe src="../side pannel/side-pannel.html" class="side-pannel-page"name="contentFrame"></iframe>
     <iframe src="../Quote generator/quote-generator.html" class="quote-generator" name="contentFrame"></iframe>
     <div class="container">
@@ -23,6 +22,10 @@
                 <input type="text" id="input-box" placeholder="Write your task" maxlength="30">
                 <button onclick="addTask()">Add Task</button>
             </div>
+            <!-- <div class="listInput">
+                <input type="text" class="listText" placeholder="Enter List Name">
+                <button type="submit" id="addListBtn" onclick="AddList()">Add List</button>
+            </div> -->
             <div class="category">
                 <button class="categorys" id="complete" onclick="" >Complete</button>
                 <button class="categorys" id="incomplete" onclick="">Incomplete</button>
@@ -35,6 +38,8 @@
             <h3 class="empty-tasks">Get tasks done with My Day <br/> A list that refreshes every day</h3>
         </div>
     </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="my-day-page.js"></script>
 </body>
 </html>

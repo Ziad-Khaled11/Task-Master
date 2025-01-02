@@ -5,8 +5,6 @@ const buttons = document.querySelectorAll('.category');
 let counter = 0;
 const complete = document.getElementById("complete")
 const incomplete = document.getElementById("incomplete")
-
-
 function addTask(){
     if(inputBox.value === ""){
         alert('Please enter a task first');
@@ -15,9 +13,19 @@ function addTask(){
         let li = document.createElement('li');
         li.innerHTML = inputBox.value;
         listContainer.appendChild(li);
-        let span = document.createElement('span');
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
+        let div = document.createElement('div');
+        //ol remove && span edit
+        div.innerHTML = `
+        <span><ion-icon name="create-outline"></ion-icon><ol>\u00d7</ol></span>
+        `
+        
+        // let edit = document.createElement('ol');
+        // edit.innerHTML = "E";
+        // li.appendChild(edit);
+        // let span = document.createElement('span');
+        // span.innerHTML = "\u00d7";
+        // li.appendChild(span);
+        li.appendChild(div);
         li.classList.add('inComplete');
         const currentDate = new Date();
         localStorage.setItem('savedDate', currentDate.toString());
@@ -34,11 +42,33 @@ listContainer.addEventListener("click", function(e){
         e.target.classList.remove("inComplete");
         saveData();
     }
-    else if (e.target.tagName === "SPAN"){
-        e.target.parentElement.remove();
-        let numberOfItems = listContainer.querySelectorAll('li').length;
-        console.log(numberOfItems);
+    else if (e.target.tagName === "ION-ICON"){
+        let parentLi = e.target.closest('li');
+        let update = prompt("Enter the edited task");
+        if (update === ""){
+            alert('Please enter the edited task');
+        }
+        else if (update){
+            parentLi.innerHTML = update;
+            let div = document.createElement('div');
+            div.innerHTML = `
+            <span><ion-icon name="create-outline"></ion-icon><ol>\u00d7</ol></span>
+            `
+            parentLi.appendChild(div);
+        }
         saveData();
+    }
+    else if (e.target.tagName === "OL"){
+        let parentLi = e.target.closest('li');
+        if (parentLi) {
+            parentLi.remove();
+            let numberOfItems = listContainer.querySelectorAll('li').length;
+            saveData();
+        }
+    }
+    if (!e.target.classList.contains("checked")){
+        e.target.classList.remove("Complete");
+        e.target.classList.add("inComplete");
     }
 }, false);
 

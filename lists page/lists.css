@@ -1,14 +1,3 @@
-.side-pannel-page{
-    width: 30vh; /* Adjust as needed */
-    height: 100vh; /* Full viewport height */
-    position: fixed;
-    top: 0;
-    left: 0; /* Aligns to the left of the screen */
-    border-right: 1px solid #ccc; /* Optional border */
-    overflow-y: auto; /* Scroll if needed */
-    border: none;
-    background-color: transparent;
-}
 .quote-generator{
     width: 30vh; /* Adjust as needed */
     height: 50vh; /* Full viewport height */
@@ -19,4 +8,655 @@
     overflow-y: auto; /* Scroll if needed */
     border: none;
     background-color: transparent;
+}
+
+*{
+
+    font-family: "Itim";
+    color:rgba(18, 17, 59, 1);
+}
+
+/* Applies the background image to the entire body */
+body {
+    background-image: url('../resources/bg.png'); /* Update the path if necessary */
+    background-size: cover; /* Scales the image to cover the entire background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed;
+    background-position: center; /* Centers the background image */
+}
+
+@font-face {
+    font-family: "Itim";
+    src: url('../resources/Itim/Itim-Regular.ttf');
+}
+
+
+/*                                                  Sidebar                                      */
+
+.side-bar {
+    position: fixed; /* Keep it fixed on the screen */
+    left: 0;
+    top: 90px;
+    width: 12vh; /* Width of the sidebar */
+    height: 91vh; /* Full viewport height */
+    background:rgba(16, 14, 14, 0.77); /* Background color */
+    transition: transform 0.3s ease; /* Smooth transition */
+    overflow: hidden; /* Hide overflow content */
+}
+
+.side-bar.expanded{
+    top:0;
+    height: 100%;
+}
+
+.side-bar ul {
+    padding: 0;
+    list-style: none;
+    margin-top: 20px; /* Adjust to fit your design */
+    transition: opacity 0.3s ease; /* Smooth appearance */
+}
+
+.side-bar li {
+    display: flex; /* Use flexbox for list items */
+    align-items: center; /* Vertically center icon and text */
+    padding: 0%;
+    margin-left: 3.5vh;
+
+}
+
+
+
+.side-bar.active {
+    width: 34vh;
+    
+}
+
+
+/* sidebar icons */
+.side-icon{
+    /* margin-left: 10vh; */
+    width: 4vh; 
+    height: 4vh; 
+    margin-right: 6vh; 
+    margin-bottom: 1vh;
+    margin-top: 2vh;
+}
+
+/* sidebar span text */
+.side-item{
+    font-size: 1.4rem;  
+    margin-right: 2vh;
+    position: absolute;
+    white-space: nowrap;
+    transform: translateY(0.75vh);
+    color: white;
+    margin-top: 2vh;
+}
+.side-item:hover{
+    color: rgba(155, 162, 226, 1);
+}
+
+.active{
+    color: white;
+}
+
+/* sidebar expand button image */
+.ic img{
+    scale:0.7;
+}
+
+
+
+/*                                        Navigation bar                                      */
+
+nav{
+    top: 0;
+    left: 0px;
+    padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background:rgba(16, 14, 14, 0.77);
+    position: fixed;
+    height: 70px;
+    width: 100%;
+}
+
+nav ul{
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li{
+    list-style-type: none;
+}
+
+
+nav ul li a {
+    text-decoration: none;
+    color:white;
+    border-radius: 0.8rem;
+    font-family: "Itim";
+    display: flex;
+    flex-direction: column;
+}
+
+nav.active{
+    height: 120px;
+    right: 0;
+    left: auto;
+    width: 90.3%;
+}
+
+
+
+/* Navbar span text */
+.nav-item {
+    font-size: 1.4rem;
+    margin-top: 2vh;
+    margin-left: 8.5vh;
+    align-items: center;
+    display: none;
+    /*position: absolute; */
+    /* margin-bottom: -1.5vh; */
+    white-space: nowrap;
+    /* transform: translateY(0.75vh) */
+}
+
+.nav-item:hover{
+    color: rgba(155, 162, 226, 1);
+}
+
+.nav-item.active{
+    display: flex;
+
+}
+
+/* expand navbar img */
+.nav-bar{
+    position: relative;   
+    width: 6.5vh;
+    z-index: 1000;
+    margin-top: -5px;
+    right: 0;
+    margin-left: 50px;
+}
+
+/* Navbar icons */
+.pannel-icon {
+    margin-left: 10vh;
+    width: 4vh;
+    height: 4vh; 
+    margin-right: 6vh; 
+    margin-bottom: 1vh;
+    transform: translateX(-1vh);
+}
+
+
+/*                                                     Tasks                                    */
+
+.tasks{
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.tasks h2{
+    color:rgba(18, 17, 59, 1);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.tasks h2 img{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-between;
+    background: whitesmoke;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+.row{
+    align-items: center;
+    padding-left: 20px;
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    left: 0;
+    justify-content: space-between;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    /* display: none;
+    -webkit-appearance: none; */
+    left:0;
+    margin-left: 145px;
+    scale: 1.3;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+    /* display: none;
+    -webkit-appearance: none; */
+    right: 0;
+    margin-left: 200px;
+
+}
+
+input:hover[type="time"]::-webkit-calendar-picker-indicator
+{
+    scale:1.2;
+}
+
+input:hover[type="date"]::-webkit-calendar-picker-indicator
+{
+    scale:1.5;
+}
+
+
+.row label{
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-left: 20px;
+    /* margin-right: 150px; */
+}
+
+
+input{
+    flex:1;
+    margin-left: 117px;
+    border: none;
+    outline: none;
+    background:transparent; 
+    padding: 8px;
+    font-weight: 14px;
+    font-size: 20px;
+    width: 55%;
+}
+
+#input-box{
+    width: 92.8%;
+    margin-left: 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .5);
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+
+.but{
+    width: 50%;
+    margin-left: 150px;
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #2E2F70;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+.but:hover{
+    background: #4D598F;
+    width: 95%;
+    margin-left:9px;
+}
+
+.tasks ul li {
+    list-style: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    margin-left: 23px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.tasks ul li::before {
+    content: '';
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("../resources/icons/Circle.png");
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+}
+
+.tasks ul li.checked::before {
+    background-image: url("../resources/icons/Check\ circle.png");
+}
+
+.tasks ul li.checked{
+    color:#555;
+    text-decoration: line-through;
+}
+
+.tasks ul li ol {
+    flex-grow: 1;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 12px;
+    padding: 0;
+    padding-left: 5px; 
+}
+.tasks ul li ol ion-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.tasks ul li span {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #2E2F70;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+}
+
+.tasks ul li:hover,
+.tasks ul li ol:hover{
+    font-size: 22px;
+}
+
+.tasks ul li span:hover {
+    background: whitesmoke;
+}
+.empty-tasks{
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+}
+.empty-task{
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+}
+
+.expired {
+    color: red; /* or any style you want to indicate expiration */
+    text-decoration: underline;
+}
+
+/*                                                  Empty List                                     */
+
+.empty{
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+.empty-lists{
+    margin: 10px auto 0;
+    display: block;
+    text-align: center;
+}
+
+#pic{
+    width: 100%;
+}
+
+.addList{
+    margin-left: 3vh;
+    width: 4vh; /* Fixed width for consistency */
+    height: 4vh; /* Fixed height for consistency */
+    bottom: 0;
+    position: fixed;
+    margin-bottom: 30px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.add{
+    font-size: 1.4rem;  
+    margin-left: 10vh;
+    white-space: nowrap;
+    transform: translateY(0.75vh);
+    color: white;
+    display: none;
+}
+
+.add.active {
+    display: flex;
+}
+
+.add:hover{
+    cursor: pointer !important;
+    color: rgba(155, 162, 226, 1);
+}
+
+
+
+.listInput{
+    display: none;
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.listText{
+    flex:1;
+    margin-left: 0;
+    outline: none;
+    align-items: center;
+    background:transparent; 
+    padding: 8px;
+    font-weight: 14px;
+    font-size: 20px;
+    width: 98%;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .5);
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+#addListBtn{
+    margin-left: 170px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+#addListBtn:hover{
+    background: #4D598F;
+    width: 50%;
+    
+}
+
+
+
+
+#combo-box {
+    width: 380px; 
+    height: 60px;
+    background-color: whitesmoke;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+}
+
+#iconLabel{
+    margin-left: 31%;
+    margin-right: 20px;
+}
+
+#comboLabel{
+    margin-right: 75px;
+}
+
+
+/*                              listed tasks                                */
+
+.listed-tasks{
+    width: 100%;
+    max-width: 700px;
+    background: linear-gradient(135deg, #ffff, #ADB1C5);
+    margin: 100px  auto 20px;
+    padding: 40px 30px 70px;
+    border-radius: 10px;
+}
+
+.listed-tasks h2{
+    color:rgba(18, 17, 59, 1);
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 10px;
+}
+
+.listed-tasks ul li {
+    list-style: none;
+    font-size: 20px;
+    padding: 10px 15px;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    margin-left: 23px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.listed-tasks ul li::before {
+    content: '';
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url("../resources/icons/Circle.png");
+    background-size: cover;
+    background-position: center;
+    margin-right: 10px;
+    flex-shrink: 0; 
+    display: inline-block;
+}
+
+.listed-tasks ul li.checked::before {
+    background-image: url("../resources/icons/Check\ circle.png");
+}
+
+.listed-tasks ul li.checked{
+    color:#555;
+    text-decoration: line-through;
+}
+
+.listed-tasks ul li ol {
+    flex-grow: 1;
+    margin: 0;
+    margin-bottom: 10px;
+    margin-top: 12px;
+    padding: 0;
+    padding-left: 5px; 
+}
+.listed-tasks ul li ol ion-icon {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.listed-tasks ul li span {
+    width: 40px;
+    height: 40px;
+    font-size: 40px;
+    color: #2E2F70;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.listed-tasks ul li:hover,
+.listed-tasks ul li ol:hover{
+    font-size: 22px;
+}
+
+.listed-tasks ul li span:hover {
+    background: whitesmoke;
+}
+
+#inputL-box{
+    width: 92.8%;
+    margin-left: 10px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, .5);
+    border: 2px solid rgba(255, 255, 255, .5);
+}
+
+.headT{
+    display: flex;
+    flex-direction: row;
+}
+
+.headT img{
+    scale:0.5;
+}
+
+.listNames{
+    display: none;
+}
+
+
+
+.category{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    padding: 15px;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
+    gap: 10px;
+    
+}
+.category-list{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+    padding: 15px;
+    flex-direction: row;
+    position: relative;
+    text-align: center;
+    gap: 10px;
+    
+}
+
+.categorys{
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #2E2F70;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}
+
+.categorys:hover{
+    background: #4D598F;
+}
+
+.categorys.active{
+    background: #4D598F;
 }

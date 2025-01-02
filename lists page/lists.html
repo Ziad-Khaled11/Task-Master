@@ -1,15 +1,201 @@
 <!DOCTYPE html>
-<html lang="en"></html>
+<html lang="en">
 <head>
-    <!-- Connects the CSS file--> 
-    <link rel="stylesheet" href="lists.css">
+    <!-- Connects the CSS file --> 
     <link rel="icon" href="../resources/icons/List.png"  type="image/x-icon">
     <title>Lists</title>
+    <link rel="stylesheet" href="lists.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-    <!-- Connects the JS file-->
-    <script src="lists.js"></script>
-    <iframe src="../side pannel/side-pannel.html" class="side-pannel-page"name="contentFrame"></iframe>
     <iframe src="../Quote generator/quote-generator.html" class="quote-generator" name="contentFrame"></iframe>
+    <nav>
+        <ul>
+            <li>
+                <a href="../main page/main page.html" target="_parent"></a>
+                
+            </li>
+            <li>
+                <a href="../My day page/my-day-page.html" target="_parent">
+                    <img src="../resources/icons/Sun.png" alt="My day" class="pannel-icon">
+                    <span class="nav-item"> My Day</span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="../Tasks page/tasks.html" target="_parent">
+                    <img src="../resources/icons/Check square.png" alt="Tasks" class="pannel-icon">
+                    <span class="nav-item"> Tasks</span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="../lists page/lists.html" target="_parent">
+                    <img src="../resources/icons/Clipboard.png" alt="List" class="pannel-icon">
+                    <span class="nav-item"> Lists</span>
+                </a>
+            </li>
+            <li>
+                <a href="../pomodoro page/pomodoro.html" target="_parent">
+                    <img src="../resources/icons/Clock.png" alt="pomdoro" class="pannel-icon">
+                    <span class="nav-item"> Pomdoro</span>
+                </a>
+                
+            </li>
+            <li>
+                <a href="../calendar page/calendar.html" target="_parent">
+                    <img src="../resources/icons/Calendar.png" alt="Calendar" class="pannel-icon">
+                    <span class="nav-item">Calendar</span>
+                </a>
+            </li>
+            <li>
+                <a href="../lists page/lists.html" target="_parent">
+                    <img src="../resources/icons/User.png" alt="add list" class="pannel-icon">
+                    <span class="nav-item"> Profile</span>
+                </a>
+                
+            </li>
+            <li>
+                <div class = "log-out">
+                <a href="#">
+                    <img src="../resources/icons/Log out.png" alt="Log-out" class="pannel-icon">
+                    <span class="nav-item">Log out</span>
+                </a>
+                </div>
+            </li>
+            <li>
+                <div class="ico" id="expand">
+                    <img src="../resources/icons/Frame 1.png" class="nav-bar">
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!--------------------------------------- sidebar----------------------------------------------------->
+    <div class="side-bar">
+        <div class="ic" id="btn">
+            <img src="../resources/icons/Frame 1.png">
+        </div>
+        <ul class="listNames">
+            <li class="all">
+                <a href="#" onclick="allClicked()">
+                    <img src="../resources/icons/Bookmark.png" class="side-icon" >
+                    <span class="side-item">All Tasks</span>
+                </a>
+            </li>
+        </ul>
+        <div class="addList" >
+            <img src="../resources/icons/Folder plus.png" class="add-btn">
+            <span class="add">Add List</span>
+        </div>
+    </div>
+
+
+
+    <!----------------------------------List Input ------------------------------->
+    <div class="listInput">
+        <input type="text" class="listText" placeholder="Enter List Name">
+        <button class="but" type="submit" id="addListBtn" onclick="AddList()">Add List</button>
+        <div class="row">
+            <label for="icon-box" id="iconLabel">Choose a List Icon</label>
+            <select class="listNameCombo" id="icon-box" name="options">
+                <option value="Bookmark" data-icon="icons/Bookmark.png"></option>
+                <option value="Bar" data-icon="icons/Bar.png"></option>
+                <option value="Book" data-icon="icons/Book.png"></option>
+                <option value="Bell" data-icon="icons/Bell.png"></option>
+                <option value="Box" data-icon="icons/Box.png"></option>
+                <option value="Check" data-icon="icons/Check.png"></option>
+                <option value="Clock" data-icon="icons/Clock.png"></option>
+                <option value="Folder" data-icon="icons/Folder.png"></option>
+                <option value="Heart" data-icon="icons/Heart.png"></option>
+                <option value="Key" data-icon="icons/Key.png"></option>
+                <option value="Lock" data-icon="icons/Lock.png"></option>
+                <option value="Music" data-icon="icons/Music.png"></option>
+            </select>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    
+    <!------------------------------------------- Tasks--------------------------------------------->
+    
+    <div class="tasks">
+        <h2>All Tasks<img src="../resources/icons/Check square.png"></h2>
+        <div class="inputs">
+            <input type="text" id="input-box" placeholder="Write your task" maxlength="38">
+            <div class="row">
+                <label for="date-box">Due Date</label>
+                <input type="date" id="date-box">
+            </div>
+            <div class="row">
+                <label for="time-box" id="timeLabel">Due Time</label>
+                <input type="time" id="time-box">
+            </div>
+
+            <div class="row">
+                <label for="combo-box" id="comboLabel">Choose a List:</label>
+                <select class="listNameCombo" id="combo-box" name="options">
+                </select>
+            </div>
+            <button class="but" onclick="addTask()">Add Task</button>
+        </div>
+        <div class="category">
+            <button class="categorys" id="High" onclick="" >High Priority</button>
+            <button class="categorys" id="Medium" onclick="">Medium Priority</button>
+            <button class="categorys" id="Low" onclick="">Low Priority</button>
+            <button class="categorys" id="remove" onclick="deleteAll()">Delete All</button>
+        </div>
+        <ul id="list-container"></ul>
+        <h3 class="empty-tasks">No Tasks Added</h3>
+        <img class="empty-tasks" src="../resources/allTasks.png" id="pic">
+        <h3 class="empty-tasks">All Tasks Show up here!</h3>
+        <h3 class="empty-tasks">All the tasks you added to any list<br/> You can check them, delete them and add other tasks to your chosen List</h3>
+        
+
+    <!-------------------------------Listed Tasks ---------------------------------------------->
+    </div>
+    <div class="listed-tasks">
+        <div class="headT">
+            <h2 class="listName"></h2>
+            <img src="../resources/icons/Check square.png">
+        </div>
+        <div class="inputs">
+            <input type="text" id="inputL-box" placeholder="Write your task" maxlength="38">
+            <div class="row">
+                <label for="dateL-box">Due Date</label>
+                <input type="date" id="dateL-box">
+            </div>
+            <div class="row">
+                <label for="timeL-box" id="timeLabel">Due Time</label>
+                <input type="time" id="timeL-box">
+            </div>
+            <button class="but" onclick="addTaskinList()">Add Task</button>
+        </div>
+        <div class="category-list">
+            <button class="categorys" id="High" onclick="" >High Priority</button>
+            <button class="categorys" id="Medium" onclick="">Medium Priority</button>
+            <button class="categorys" id="Low" onclick="">Low Priority</button>
+            <button class="categorys" id="remove" onclick="deleteList()">Delete All</button>
+        </div>
+        <ul id="listed-container"></ul>
+        <h3 class="empty-task">No Tasks Added</h3>
+        <img class="empty-task" src="../resources/listedTasks.png" id="pic">
+        <h3 class="empty-task">Listed Tasks are here</h3>
+        <h3 class="empty-task">Get tasks done with timeline<br/> Tasks which you organize inside a list you created</h3>
+        
+    </div>
+    <div class="empty">
+
+        <h3 class="empty-lists">No Lists Added</h3>
+        <img class="empty-lists" src="../resources/lists.png" id="pic">
+        <h3 class="empty-lists">Create a list now!</h3>
+        <h3 class="empty-lists">Start adding tasks to it<br/>Now tasks are categorized as you like!</h3>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="lists.js"></script>
 </body>
 </html>
