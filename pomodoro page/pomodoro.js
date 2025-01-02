@@ -6,6 +6,7 @@ let breakTime = 5;
 
 let seconds = "00";
 let timer; // To keep track of the timer interval
+let isPaused = false; // Flag for pause/resume functionality
 
 // display
 window.onload = () => {
@@ -15,10 +16,22 @@ window.onload = () => {
     workTittle.classList.add('active');
 }
 
+// Update work and break times based on input fields
+function updateTimes() {
+    workTime = parseInt(document.getElementById('work-time').value);
+    breakTime = parseInt(document.getElementById('break-time').value);
+
+    if (!isPaused) {
+        document.getElementById('minutes').innerHTML = workTime;
+        document.getElementById('seconds').innerHTML = "00";
+    }
+}
+
 // start timer
 function start() {
-    // change button
+    // change button visibility
     document.getElementById('start').style.display = "none";
+    document.getElementById('pause').style.display = "inline-block";
     document.getElementById('reset').style.display = "block";
 
     // change the time
@@ -66,10 +79,25 @@ function start() {
     timer = setInterval(timerFunction, 1000); // 1000 = 1s
 }
 
+// pause timer
+function pause() {
+    clearInterval(timer); // Stop the timer
+    isPaused = true; // Set the pause flag
+    document.getElementById('start').style.display = "block";
+    document.getElementById('pause').style.display = "none";
+}
+
+// resume timer
+function resume() {
+    start(); // Restart the timer
+    isPaused = false; // Clear the pause flag
+}
+
 // reset timer
 function reset() {
     clearInterval(timer); // Stop the timer
     document.getElementById('start').style.display = "block";
+    document.getElementById('pause').style.display = "none";
     document.getElementById('reset').style.display = "none";
 
     // Reset times
@@ -80,3 +108,4 @@ function reset() {
     workTittle.classList.add('active');
     breakTittle.classList.remove('active');
 }
+

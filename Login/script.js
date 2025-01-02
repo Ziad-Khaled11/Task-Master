@@ -33,6 +33,19 @@ function togglePasswordVisibility() {
         eyeIcon.name = 'eye-off-outline'; // Change to 'eye-off' icon
     }
 }
+function togglePasswordVisibility2() {
+    const passwordInput = document.getElementById('password2');
+    const eyeIcon = document.getElementById('eyeIcon2');
+
+    // Toggle password visibility
+    if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        eyeIcon.name = 'eye-outline'; // Change to 'eye' icon
+    } else {
+        passwordInput.type = 'password';
+        eyeIcon.name = 'eye-off-outline'; // Change to 'eye-off' icon
+    }
+}
 const backgrounds = [
     '../resources/login-bg/download (10).jpg',
     '../resources/login-bg/color_periwinkle.jpg',

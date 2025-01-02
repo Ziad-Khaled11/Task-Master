@@ -7,11 +7,15 @@
 
     --color-shadow: hsl(235, 36%, 35%);
 }
-
+@font-face {
+    font-family: "itim";
+    src: url('../resources/Itim/Itim-Regular.ttf');
+}
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "itim";
 }
 
 
@@ -35,10 +39,12 @@ section {
     display: flex;
     align-items: center;
     height: 100%;
+    width: 80%;
 }
 
 .container {
-    width: min(42.5rem, 100%);
+    /*width: min(42.5rem, 100%);*/
+    width: 80%;
     margin-inline: auto;
     padding-inline: 2rem;
     display: flex;
@@ -175,6 +181,52 @@ body {
     border: none;
     background-color: transparent;
 }
+
+.time-settings {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-size: 2rem;
+    flex-wrap: wrap;
+}
+
+.time-settings label {
+    margin-right: 0.5rem;
+    font-size: 2rem;
+    color: var(--color-font);
+    font-weight: 400;
+}
+
+.time-settings input {
+    width: 4rem;
+    /* padding: 1.5rem; */
+    font-size: 2rem;
+    text-align: center;
+    background-color: rgba(176, 178, 197, 1);
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--color-font);
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect to make it more interactive */
+.time-settings input:hover {
+    background-color: rgba(88, 113, 199, 1);
+    color: white;
+}
+
+/* Focus effect for better accessibility */
+.time-settings input:focus {
+    outline: none;
+    background-color: rgba(88, 113, 199, 1);
+    color: white;
+    box-shadow: 0 0 0 2px rgba(6, 16, 55, 1);
+}
+
+
+
 /* Small devices (landscape phones, less than 576px) */
 @media (max-width: 575.98px) {
     :root {

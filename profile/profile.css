@@ -31,6 +31,7 @@ body {
     margin: 100px  auto 20px;
     padding: 40px 30px 70px;
     border-radius: 0.8rem;
+    display: block;
 }
 .circle{
     display:flex;
@@ -41,7 +42,12 @@ body {
     background: linear-gradient(135deg, #ffff, #ADB1C5);
     position: relative;
     transform: translate(24vh,-8vh);
+    margin-left: 10px;
 
+}
+
+#input-file{
+    margin-left: -10px;
 }
 .icon {
     position: relative;
@@ -100,7 +106,9 @@ body {
     
 }
 
-
+#move{
+    margin-left: 40px;
+}
 
 .input-box input:focus ~ .label,
 .input-box input:not(:placeholder-shown) ~ .label {

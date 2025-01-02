@@ -5,23 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Timer</title>
-    <link rel="icon" href="../resources/icons/Clock.png"  type="image/x-icon">
-    <!-- <link rel="icon" href="../resources/icons/List.png"  type="image/x-icon"> -->
-    <!-- FONT -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="../resources/icons/Clock.png" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
-    <!-- ICONS -->
     <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
-
-    <!-- CSS -->
     <link rel="stylesheet" href="pomodoro.css">
 </head>
 <body>
     <div class="background">
-    <section>
-       
+        <section>
             <div class="container">
                 <h1>Pomodoro</h1>
 
@@ -42,13 +33,20 @@
 
                 <div class="controls">
                     <button id="start" onclick="start()"><i class="fa-solid fa-play"></i></button>
-                    <a id="reset" onclick= "reset()"><i class="fa-solid fa-arrow-rotate-left"></i></a>
+                    <button id="pause" onclick="pause()" style="display: none;"><i class="fa-solid fa-pause"></i></button>
+                    <button id="reset" onclick="reset()"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+                </div>
+
+                <!-- Input fields to edit work and break time -->
+                <div class="time-settings">
+                    <label for="work-time">Work Time (minutes):</label>
+                    <input type="number" id="work-time" value="25" min="1" onchange="updateTimes()">
+                    <label for="break-time">Break Time (minutes):</label>
+                    <input type="number" id="break-time" value="5" min="1" onchange="updateTimes()">
                 </div>
             </div>
-        
-    </section>
-</div>
-    <!-- SCRIPT -->
+        </section>
+    </div>
     <script src="pomodoro.js"></script>
     <iframe src="../side pannel/side-pannel.html" class="side-pannel-page" name="contentFrame"></iframe>
     <iframe src="../Quote generator/quote-generator.html" class="quote-generator" name="contentFrame"></iframe>
