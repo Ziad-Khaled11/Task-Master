@@ -38,6 +38,7 @@ const MEDIUM = document.getElementById('Medium');
 const HIGHALL = document.getElementById('highall');
 const LOWALL = document.getElementById('lowall');
 const MEDIUMALL = document.getElementById('mediumall');
+const listside = document.getElementById('listsidebar');
 let listedTasksView = false;
 let counter = 0;
 
@@ -167,7 +168,7 @@ function addTask() {
         span.innerHTML = "\u00d7";
         li.appendChild(span);
         li.classList.add('inComplete');
-        let className = comboBox.value.replace(/ /g, '-');
+        let className = comboBox.value.replace(' ', '-');
         li.classList.add(className);
         if (lowall.classList.contains('active')) {
             li.classList.add('low');
@@ -211,18 +212,21 @@ function clickEvent(e) {
     let elements = document.querySelectorAll(`[id='${elementId}']`);
     if (e.target.tagName === "LI") {
         elements.forEach(function(element) {
+            console.log(element);
             element.classList.toggle("checked");
         });
     } else if (e.target.tagName === 'OL' || e.target.tagName === 'ION-ICON') {
         let parentLi = e.target.closest('li');
         if (parentLi) {
             elements.forEach(function(element) {
+                console.log("hello");
                 element.classList.toggle("checked");
             });
         }
     }
     else if (e.target.tagName === "SPAN"){
         let taskId = e.target.parentElement.id;
+        console.log("hidden");
         document.querySelectorAll(`[id='${taskId}']`).forEach(task => {
             task.remove();
         });
@@ -250,14 +254,14 @@ function AddList() {
         emptyList.style.display = 'none';
         tasks.style.display = 'block';
         let li = document.createElement('li');
-        className = listNameValue.replace(/ /g, '-');
+        className = listNameValue.replace(' ', '-');
         li.innerHTML = `
             <a href="#" class="${className}">
                 <img src="../resources/icons/${icon}.png" class="side-icon">
                 <span class="side-item">${listNameValue}</span>
             </a>
         `;
-
+        li.classList.add(className);
         listnames.appendChild(li);
         addOption(listNameValue, className, icon);
         const anchor = li.querySelector('a');
@@ -266,6 +270,7 @@ function AddList() {
     }
     saveData();
 }
+
 
 function addTaskinList() {
     if (inputLBox.value === "") {
@@ -291,7 +296,7 @@ function addTaskinList() {
         <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
         </div>
         `;
-        let className = listName.innerHTML.replace(/ /g, '-');
+        let className = listName.innerHTML.replace(' ', '-');
         li.classList.add(className);
         li.dataset.dateTime = taskDateTime.toISOString();
         li.dataset.checked = 'false'; 
@@ -350,7 +355,7 @@ function addTaskinList() {
 function listNameClicked(event) {
     event.preventDefault();
     const className = event.currentTarget.className; 
-    let title = className.replace('-',/ /g);
+    let title = className.replace('-',' ');
     tasks.style.display = 'none';
     listTasks.style.display = 'block';
     inputLBox.value = "";
@@ -823,7 +828,7 @@ function deleteAll() {
 }
 
 function deleteList(){
-    const className = listName.innerHTML.replace(/ /g, '-'); 
+    const className = listName.innerHTML.replace(' ', '-'); 
     const items = listedContainer.querySelectorAll('li');
     const allItems = listContainer.querySelectorAll('li');
     items.forEach(item => {
@@ -836,6 +841,26 @@ function deleteList(){
     }});
 }
 
+function deleteWholeList(){
+    const className = listName.innerHTML.replace(' ', '-'); 
+    const items = listedContainer.querySelectorAll('li');
+    const allItems = listContainer.querySelectorAll('li');
+    items.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+    allItems.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+    for (let i = 0; i < comboBox.options.length; i++) {
+        if (comboBox.options[i].value === className) {
+            comboBox.remove(i); // Removes the option with the matching value
+            break;
+        }
+    }
+    allClicked();
+}
 
 function uniqueId() {
     return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 16);

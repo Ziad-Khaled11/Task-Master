@@ -79,7 +79,7 @@
         <div class="ic" id="btn">
             <img src="../resources/icons/Frame 1.png">
         </div>
-        <ul class="listNames">
+        <ul class="listNames" id = "listsidebar">
             <li class="all">
                 <a href="#" onclick="allClicked()">
                     <img src="../resources/icons/Bookmark.png" class="side-icon" >
@@ -183,6 +183,7 @@
                 <button class="categorys" id="lowaddlist" onclick="lowlist()">Low Priority</button>
             </div>
             <button class="but" onclick="addTaskinList()">Add Task</button>
+            <button class="but" id = "deletewhole" onclick="deleteWholeList(); selectAllLi();">Delete List</button>
         </div>
         <div class="category-list">
             <button class="categorys" id="High" onclick="High()" >High Priority</button>
@@ -207,5 +208,20 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="lists.js"></script>
+    <script>
+        function selectAllLi() {
+            const listItems = document.querySelectorAll('#listsidebar li'); // Selects all <li> inside #myList
+            const listname = document.querySelector('.listName');
+            console.log(listname.innerHTML);
+            console.log("---------------------------------");
+            listItems.forEach((item, index) => {
+                console.log(item.textContent);
+                if (item.textContent.trim().toLowerCase() === listname.innerHTML.trim().toLowerCase()) {
+                        item.remove();
+
+                    }
+            });
+        }
+    </script>
 </body>
 </html>

@@ -145,7 +145,7 @@ nav.active{
     height: 120px;
     right: 0;
     left: auto;
-    width: 90.5%;
+    width: 90.8%;
 }
 
 
@@ -669,4 +669,8 @@ input{
 
 .categorys.active{
     background: #4D598F;
+}
+
+#deletewhole{
+    margin-top: 20px;
 }
