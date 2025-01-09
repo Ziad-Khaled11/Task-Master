@@ -141,99 +141,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-function addTask() {
-    if (inputBox.value === "") {
-        alert('Please enter a task first');
-    } else if (dateBox.value === "") {
-        alert('Please select a date first');
-    } else if (timeBox.value === "") {
-        alert('Please select time first');
-    } else {
-        const taskText = inputBox.value;
-        const taskTime = timeBox.value;
-        const taskDate = dateBox.value;
-        const taskDateTime = new Date(`${taskDate}T${taskTime}`);
-        let li = document.createElement('li');
-        let allLi = document.createElement('li');
-        li.innerHTML = `
-        <div class="tasks-container">
-        <ol><ion-icon name="clipboard-outline"></ion-icon>${taskText}</ol>
-        <ol><ion-icon name="calendar-outline"></ion-icon>${taskDate}</ol>
-        <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
-        </div>
-        `;
-        li.dataset.dateTime = taskDateTime.toISOString();
-        li.dataset.checked = 'false'; // Default checked state
-        let span = document.createElement('span');
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
-        li.classList.add('inComplete');
-        let className = comboBox.value.replace(' ', '-');
-        li.classList.add(className);
-        if (lowall.classList.contains('active')) {
-            li.classList.add('low');
-            allLi.classList.add('low');
-        }
-        else if (mediumall.classList.contains('active')) {
-            li.classList.add('medium');
-            allLi.classList.add('medium');
-        }
-        else if (highall.classList.contains('active')){
-            li.classList.add('high');
-            allLi.classList.add('high');
-        }
-        else{
-            li.classList.add('low');
-            allLi.classList.add('low');
-        }
-        allLi.innerHTML = li.innerHTML;
-        allLi.dataset.dateTime = taskDateTime.toISOString();
-        allLi.classList.add(className);
-        listContainer.appendChild(li);
-        listedContainer.appendChild(allLi);
-        inputBox.value = "";
-        timeBox.value = "";
-        dateBox.value = "";
-        if (lowall.classList.contains('active')) {
-            lowall.classList.remove('active');
-        }
-        if (mediumall.classList.contains('active')) {
-            mediumall.classList.remove('active');
-        }
-        if (highall.classList.contains('active')){
-            highall.classList.remove('active');
-        }
-        saveData();
-    }
-}
+
 
 function clickEvent(e) {
-    let elementId = e.target.id;
-    let elements = document.querySelectorAll(`[id='${elementId}']`);
+    const elementId = e.target.id;
+    const elements = document.querySelectorAll(`[id='${elementId}']`);
+    
     if (e.target.tagName === "LI") {
-        elements.forEach(function(element) {
-            console.log(element);
+        elements.forEach(element => {
             element.classList.toggle("checked");
         });
-    } else if (e.target.tagName === 'OL' || e.target.tagName === 'ION-ICON') {
-        let parentLi = e.target.closest('li');
+    } 
+    else if (e.target.tagName === 'OL' || e.target.tagName === 'ION-ICON') {
+        const parentLi = e.target.closest('li');
         if (parentLi) {
-            elements.forEach(function(element) {
-                console.log("hello");
+            const parentElements = document.querySelectorAll(`[id='${parentLi.id}']`);
+            parentElements.forEach(element => {
                 element.classList.toggle("checked");
             });
         }
-    }
-    else if (e.target.tagName === "SPAN"){
-        let taskId = e.target.parentElement.id;
-        console.log("hidden");
+    } 
+    else if (e.target.tagName === "SPAN") {
+        const taskId = e.target.parentElement.id;
         document.querySelectorAll(`[id='${taskId}']`).forEach(task => {
             task.remove();
         });
-        
     }
-    saveData();
+
+    saveData(); // Ensure this function is defined and working properly
 }
+
 
 listContainer.addEventListener("click", clickEvent, false);
 listedContainer.addEventListener("click", clickEvent, false);
@@ -271,7 +208,78 @@ function AddList() {
     saveData();
 }
 
-
+function addTask() {
+    if (inputBox.value === "") {
+        alert('Please enter a task first');
+    } else if (dateBox.value === "") {
+        alert('Please select a date first');
+    } else if (timeBox.value === "") {
+        alert('Please select time first');
+    } else {
+        const taskText = inputBox.value;
+        const taskTime = timeBox.value;
+        const taskDate = dateBox.value;
+        let UID = uniqueId();
+        const taskDateTime = new Date(`${taskDate}T${taskTime}`);
+        let li = document.createElement('li');
+        let allLi = document.createElement('li');
+        li.innerHTML = `
+        <div class="tasks-container">
+        <ol><ion-icon name="clipboard-outline"></ion-icon>${taskText}</ol>
+        <ol><ion-icon name="calendar-outline"></ion-icon>${taskDate}</ol>
+        <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
+        </div>
+        `;
+        li.dataset.dateTime = taskDateTime.toISOString();
+        li.dataset.checked = 'false'; // Default checked state
+        let span = document.createElement('span');
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+        li.classList.add('inComplete');
+        li.id = UID;
+        let className = comboBox.value.replace(' ', '-');
+        li.classList.add(className);
+        if (lowall.classList.contains('active')) {
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        else if (mediumall.classList.contains('active')) {
+            li.classList.add('medium');
+            allLi.classList.add('medium');
+        }
+        else if (highall.classList.contains('active')){
+            li.classList.add('high');
+            allLi.classList.add('high');
+        }
+        else{
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        allLi.innerHTML = li.innerHTML;
+        allLi.id = UID;
+        const newOl = document.createElement('ol');
+        newOl.innerHTML = `<ion-icon name="folder-open-outline"></ion-icon>${comboBox.value}`;
+        li.querySelector('.tasks-container').appendChild(newOl);
+        // allLi.appendChild(span);
+        allLi.dataset.dateTime = taskDateTime.toISOString();
+        allLi.classList.add(className);
+        listContainer.appendChild(li);
+        listedContainer.appendChild(allLi);
+        inputBox.value = "";
+        timeBox.value = "";
+        dateBox.value = "";
+        if (lowall.classList.contains('active')) {
+            lowall.classList.remove('active');
+        }
+        if (mediumall.classList.contains('active')) {
+            mediumall.classList.remove('active');
+        }
+        if (highall.classList.contains('active')){
+            highall.classList.remove('active');
+        }
+        saveData();
+    }
+}
 function addTaskinList() {
     if (inputLBox.value === "") {
         alert('Please enter a task first');
@@ -285,7 +293,7 @@ function addTaskinList() {
         const taskDate = dateLBox.value;
         const taskDateTime = new Date(`${taskDate}T${taskTime}`);
         
-
+        let className = listName.innerHTML.replace(' ', '-');
         let UID = uniqueId();
         let li = document.createElement('li');
         let allLi = document.createElement('li');
@@ -296,7 +304,7 @@ function addTaskinList() {
         <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
         </div>
         `;
-        let className = listName.innerHTML.replace(' ', '-');
+        
         li.classList.add(className);
         li.dataset.dateTime = taskDateTime.toISOString();
         li.dataset.checked = 'false'; 
@@ -325,6 +333,9 @@ function addTaskinList() {
         allLi.dataset.dateTime = taskDateTime.toISOString();
         allLi.classList.add(className);
         allLi.id = UID;
+        const newOl = document.createElement('ol');
+        newOl.innerHTML = `<ion-icon name="folder-open-outline"></ion-icon>${listName.innerHTML}`;
+        allLi.querySelector('.tasks-container').appendChild(newOl);
         listedContainer.appendChild(li);
         listContainer.appendChild(allLi);
 

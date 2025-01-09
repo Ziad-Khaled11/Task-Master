@@ -212,10 +212,7 @@
         function selectAllLi() {
             const listItems = document.querySelectorAll('#listsidebar li'); // Selects all <li> inside #myList
             const listname = document.querySelector('.listName');
-            console.log(listname.innerHTML);
-            console.log("---------------------------------");
             listItems.forEach((item, index) => {
-                console.log(item.textContent);
                 if (item.textContent.trim().toLowerCase() === listname.innerHTML.trim().toLowerCase()) {
                         item.remove();
 
