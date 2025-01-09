@@ -38,6 +38,7 @@ const MEDIUM = document.getElementById('Medium');
 const HIGHALL = document.getElementById('highall');
 const LOWALL = document.getElementById('lowall');
 const MEDIUMALL = document.getElementById('mediumall');
+const listside = document.getElementById('listsidebar');
 let listedTasksView = false;
 let counter = 0;
 
@@ -140,96 +141,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-function addTask() {
-    if (inputBox.value === "") {
-        alert('Please enter a task first');
-    } else if (dateBox.value === "") {
-        alert('Please select a date first');
-    } else if (timeBox.value === "") {
-        alert('Please select time first');
-    } else {
-        const taskText = inputBox.value;
-        const taskTime = timeBox.value;
-        const taskDate = dateBox.value;
-        const taskDateTime = new Date(`${taskDate}T${taskTime}`);
-        let li = document.createElement('li');
-        let allLi = document.createElement('li');
-        li.innerHTML = `
-        <div class="tasks-container">
-        <ol><ion-icon name="clipboard-outline"></ion-icon>${taskText}</ol>
-        <ol><ion-icon name="calendar-outline"></ion-icon>${taskDate}</ol>
-        <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
-        </div>
-        `;
-        li.dataset.dateTime = taskDateTime.toISOString();
-        li.dataset.checked = 'false'; // Default checked state
-        let span = document.createElement('span');
-        span.innerHTML = "\u00d7";
-        li.appendChild(span);
-        li.classList.add('inComplete');
-        let className = comboBox.value.replace(/ /g, '-');
-        li.classList.add(className);
-        if (lowall.classList.contains('active')) {
-            li.classList.add('low');
-            allLi.classList.add('low');
-        }
-        else if (mediumall.classList.contains('active')) {
-            li.classList.add('medium');
-            allLi.classList.add('medium');
-        }
-        else if (highall.classList.contains('active')){
-            li.classList.add('high');
-            allLi.classList.add('high');
-        }
-        else{
-            li.classList.add('low');
-            allLi.classList.add('low');
-        }
-        allLi.innerHTML = li.innerHTML;
-        allLi.dataset.dateTime = taskDateTime.toISOString();
-        allLi.classList.add(className);
-        listContainer.appendChild(li);
-        listedContainer.appendChild(allLi);
-        inputBox.value = "";
-        timeBox.value = "";
-        dateBox.value = "";
-        if (lowall.classList.contains('active')) {
-            lowall.classList.remove('active');
-        }
-        if (mediumall.classList.contains('active')) {
-            mediumall.classList.remove('active');
-        }
-        if (highall.classList.contains('active')){
-            highall.classList.remove('active');
-        }
-        saveData();
-    }
-}
+
 
 function clickEvent(e) {
-    let elementId = e.target.id;
-    let elements = document.querySelectorAll(`[id='${elementId}']`);
+    const elementId = e.target.id;
+    const elements = document.querySelectorAll(`[id='${elementId}']`);
+    
     if (e.target.tagName === "LI") {
-        elements.forEach(function(element) {
+        elements.forEach(element => {
             element.classList.toggle("checked");
         });
-    } else if (e.target.tagName === 'OL' || e.target.tagName === 'ION-ICON') {
-        let parentLi = e.target.closest('li');
+    } 
+    else if (e.target.tagName === 'OL' || e.target.tagName === 'ION-ICON') {
+        const parentLi = e.target.closest('li');
         if (parentLi) {
-            elements.forEach(function(element) {
+            const parentElements = document.querySelectorAll(`[id='${parentLi.id}']`);
+            parentElements.forEach(element => {
                 element.classList.toggle("checked");
             });
         }
-    }
-    else if (e.target.tagName === "SPAN"){
-        let taskId = e.target.parentElement.id;
+    } 
+    else if (e.target.tagName === "SPAN") {
+        const taskId = e.target.parentElement.id;
         document.querySelectorAll(`[id='${taskId}']`).forEach(task => {
             task.remove();
         });
-        
     }
-    saveData();
+
+    saveData(); // Ensure this function is defined and working properly
 }
+
 
 listContainer.addEventListener("click", clickEvent, false);
 listedContainer.addEventListener("click", clickEvent, false);
@@ -250,14 +191,14 @@ function AddList() {
         emptyList.style.display = 'none';
         tasks.style.display = 'block';
         let li = document.createElement('li');
-        className = listNameValue.replace(/ /g, '-');
+        className = listNameValue.replace(' ', '-');
         li.innerHTML = `
             <a href="#" class="${className}">
                 <img src="../resources/icons/${icon}.png" class="side-icon">
                 <span class="side-item">${listNameValue}</span>
             </a>
         `;
-
+        li.classList.add(className);
         listnames.appendChild(li);
         addOption(listNameValue, className, icon);
         const anchor = li.querySelector('a');
@@ -267,6 +208,78 @@ function AddList() {
     saveData();
 }
 
+function addTask() {
+    if (inputBox.value === "") {
+        alert('Please enter a task first');
+    } else if (dateBox.value === "") {
+        alert('Please select a date first');
+    } else if (timeBox.value === "") {
+        alert('Please select time first');
+    } else {
+        const taskText = inputBox.value;
+        const taskTime = timeBox.value;
+        const taskDate = dateBox.value;
+        let UID = uniqueId();
+        const taskDateTime = new Date(`${taskDate}T${taskTime}`);
+        let li = document.createElement('li');
+        let allLi = document.createElement('li');
+        li.innerHTML = `
+        <div class="tasks-container">
+        <ol><ion-icon name="clipboard-outline"></ion-icon>${taskText}</ol>
+        <ol><ion-icon name="calendar-outline"></ion-icon>${taskDate}</ol>
+        <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
+        </div>
+        `;
+        li.dataset.dateTime = taskDateTime.toISOString();
+        li.dataset.checked = 'false'; // Default checked state
+        let span = document.createElement('span');
+        span.innerHTML = "\u00d7";
+        li.appendChild(span);
+        li.classList.add('inComplete');
+        li.id = UID;
+        let className = comboBox.value.replace(' ', '-');
+        li.classList.add(className);
+        if (lowall.classList.contains('active')) {
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        else if (mediumall.classList.contains('active')) {
+            li.classList.add('medium');
+            allLi.classList.add('medium');
+        }
+        else if (highall.classList.contains('active')){
+            li.classList.add('high');
+            allLi.classList.add('high');
+        }
+        else{
+            li.classList.add('low');
+            allLi.classList.add('low');
+        }
+        allLi.innerHTML = li.innerHTML;
+        allLi.id = UID;
+        const newOl = document.createElement('ol');
+        newOl.innerHTML = `<ion-icon name="folder-open-outline"></ion-icon>${comboBox.value}`;
+        li.querySelector('.tasks-container').appendChild(newOl);
+        // allLi.appendChild(span);
+        allLi.dataset.dateTime = taskDateTime.toISOString();
+        allLi.classList.add(className);
+        listContainer.appendChild(li);
+        listedContainer.appendChild(allLi);
+        inputBox.value = "";
+        timeBox.value = "";
+        dateBox.value = "";
+        if (lowall.classList.contains('active')) {
+            lowall.classList.remove('active');
+        }
+        if (mediumall.classList.contains('active')) {
+            mediumall.classList.remove('active');
+        }
+        if (highall.classList.contains('active')){
+            highall.classList.remove('active');
+        }
+        saveData();
+    }
+}
 function addTaskinList() {
     if (inputLBox.value === "") {
         alert('Please enter a task first');
@@ -280,7 +293,7 @@ function addTaskinList() {
         const taskDate = dateLBox.value;
         const taskDateTime = new Date(`${taskDate}T${taskTime}`);
         
-
+        let className = listName.innerHTML.replace(' ', '-');
         let UID = uniqueId();
         let li = document.createElement('li');
         let allLi = document.createElement('li');
@@ -291,7 +304,7 @@ function addTaskinList() {
         <ol><ion-icon name="time-outline"></ion-icon>${taskTime}</ol>
         </div>
         `;
-        let className = listName.innerHTML.replace(/ /g, '-');
+        
         li.classList.add(className);
         li.dataset.dateTime = taskDateTime.toISOString();
         li.dataset.checked = 'false'; 
@@ -320,6 +333,9 @@ function addTaskinList() {
         allLi.dataset.dateTime = taskDateTime.toISOString();
         allLi.classList.add(className);
         allLi.id = UID;
+        const newOl = document.createElement('ol');
+        newOl.innerHTML = `<ion-icon name="folder-open-outline"></ion-icon>${listName.innerHTML}`;
+        allLi.querySelector('.tasks-container').appendChild(newOl);
         listedContainer.appendChild(li);
         listContainer.appendChild(allLi);
 
@@ -350,7 +366,7 @@ function addTaskinList() {
 function listNameClicked(event) {
     event.preventDefault();
     const className = event.currentTarget.className; 
-    let title = className.replace('-',/ /g);
+    let title = className.replace('-',' ');
     tasks.style.display = 'none';
     listTasks.style.display = 'block';
     inputLBox.value = "";
@@ -823,7 +839,7 @@ function deleteAll() {
 }
 
 function deleteList(){
-    const className = listName.innerHTML.replace(/ /g, '-'); 
+    const className = listName.innerHTML.replace(' ', '-'); 
     const items = listedContainer.querySelectorAll('li');
     const allItems = listContainer.querySelectorAll('li');
     items.forEach(item => {
@@ -836,6 +852,26 @@ function deleteList(){
     }});
 }
 
+function deleteWholeList(){
+    const className = listName.innerHTML.replace(' ', '-'); 
+    const items = listedContainer.querySelectorAll('li');
+    const allItems = listContainer.querySelectorAll('li');
+    items.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+    allItems.forEach(item => {
+        if (item.classList.contains(className)) {
+            item.remove();
+    }});
+    for (let i = 0; i < comboBox.options.length; i++) {
+        if (comboBox.options[i].value === className) {
+            comboBox.remove(i); // Removes the option with the matching value
+            break;
+        }
+    }
+    allClicked();
+}
 
 function uniqueId() {
     return 'id-' + Date.now().toString(36) + '-' + Math.random().toString(36).substr(2, 16);
