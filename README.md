@@ -19,7 +19,6 @@ Install dependencies:
 
 ```bash
   npm install -g http-server
-  cd Task-Master
   http-server
 ```
 Run the application:
