@@ -6,9 +6,31 @@ Task Master is a  project designed to streamline task management and boost produ
 
 ![Logo](https://i.postimg.cc/3w9S2cJ5/logo.png)
 
+## Installation
+
+Clone the repository 
+
+```bash
+  git clone https://github.com/Ziad-Khaled11/Task-Master.git
+  cd Task-Master
+```
+
+Install dependencies:
+
+```bash
+  npm install -g http-server
+  cd Task-Master
+  http-server
+```
+Run the application:
+```bash
+Open your browser and go to:
+http://localhost:8080
+```
 
 ## 🛠️ Technologies Used
 - **Frontend**: HTML, CSS, JavaScript
+- **Frameworks**: Bootstrap
 - **Database**: Local Database
 - **Version Control**: Git & GitHub
 ## 🤝 Contributing
@@ -64,3 +86,6 @@ We value your input! Your feedback helps us improve Task Master and make it even
 
 [DEMO](https://www.youtube.com/watch?v=tg3f2xxrntg)
 
+
+
+    
